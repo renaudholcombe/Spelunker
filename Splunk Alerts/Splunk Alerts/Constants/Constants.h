@@ -9,5 +9,9 @@
 #ifndef Constants_h
 #define Constants_h
 
+typedef NS_ENUM(NSInteger, AlertType) {
+    Scheduled,
+    Polling
+} ;
 
 #endif /* Constants_h */

@@ -10,4 +10,8 @@
 
 @interface LogicManager : NSObject
 
++(id)sharedManager;
+
+-(NSArray *) getAlertList;
+
 @end

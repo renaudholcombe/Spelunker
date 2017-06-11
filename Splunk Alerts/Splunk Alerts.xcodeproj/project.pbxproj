@@ -7,21 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E222A251EEDE9C100B9389D /* AlertTableView.m */; };
 		3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E42F1EEDB706006C5751 /* AppDelegate.m */; };
 		3E51E4331EEDB706006C5751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4321EEDB706006C5751 /* main.m */; };
 		3E51E4361EEDB706006C5751 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4351EEDB706006C5751 /* ViewController.m */; };
 		3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4371EEDB706006C5751 /* Assets.xcassets */; };
 		3E51E43B1EEDB707006C5751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4391EEDB707006C5751 /* Main.storyboard */; };
 		3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4441EEDB7C6006C5751 /* MainViewController.m */; };
-		3E51E4481EEDBFEC006C5751 /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4471EEDBFEC006C5751 /* AlertTableView.m */; };
 		3E51E44E1EEDCA15006C5751 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E44D1EEDCA15006C5751 /* Alert.m */; };
 		3E51E4521EEDCA33006C5751 /* LogicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4511EEDCA33006C5751 /* LogicManager.m */; };
 		3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4551EEDCA6E006C5751 /* SplunkProvider.m */; };
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */; };
+		3E51E4601EEDD1BD006C5751 /* AlertProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E222A241EEDE9C100B9389D /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
+		3E222A251EEDE9C100B9389D /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertTableView.m; path = ViewController/AlertTableView.m; sourceTree = "<group>"; };
 		3E51E42B1EEDB706006C5751 /* Splunk Alerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splunk Alerts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E51E42E1EEDB706006C5751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E51E42F1EEDB706006C5751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -33,8 +36,6 @@
 		3E51E43C1EEDB707006C5751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E51E4431EEDB7C6006C5751 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ViewController/MainViewController.h; sourceTree = "<group>"; };
 		3E51E4441EEDB7C6006C5751 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ViewController/MainViewController.m; sourceTree = "<group>"; };
-		3E51E4461EEDBFEC006C5751 /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
-		3E51E4471EEDBFEC006C5751 /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertTableView.m; path = ViewController/AlertTableView.m; sourceTree = "<group>"; };
 		3E51E44A1EEDC9C9006C5751 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Constants/Constants.h; sourceTree = "<group>"; };
 		3E51E44C1EEDCA15006C5751 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alert.h; path = Transport/Alert.h; sourceTree = "<group>"; };
 		3E51E44D1EEDCA15006C5751 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alert.m; path = Transport/Alert.m; sourceTree = "<group>"; };
@@ -46,6 +47,8 @@
 		3E51E4581EEDCA7D006C5751 /* EmailProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailProvider.m; path = Provider/EmailProvider.m; sourceTree = "<group>"; };
 		3E51E45B1EEDCAD4006C5751 /* SplunkRetrieveOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplunkRetrieveOperation.h; path = Operation/SplunkRetrieveOperation.h; sourceTree = "<group>"; };
 		3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkRetrieveOperation.m; path = Operation/SplunkRetrieveOperation.m; sourceTree = "<group>"; };
+		3E51E45E1EEDD1BD006C5751 /* AlertProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertProvider.h; path = Provider/AlertProvider.h; sourceTree = "<group>"; };
+		3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertProvider.m; path = Provider/AlertProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +110,10 @@
 		3E51E4421EEDB78B006C5751 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3E222A241EEDE9C100B9389D /* AlertTableView.h */,
+				3E222A251EEDE9C100B9389D /* AlertTableView.m */,
 				3E51E4431EEDB7C6006C5751 /* MainViewController.h */,
 				3E51E4441EEDB7C6006C5751 /* MainViewController.m */,
-				3E51E4461EEDBFEC006C5751 /* AlertTableView.h */,
-				3E51E4471EEDBFEC006C5751 /* AlertTableView.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -148,6 +151,8 @@
 				3E51E4551EEDCA6E006C5751 /* SplunkProvider.m */,
 				3E51E4571EEDCA7D006C5751 /* EmailProvider.h */,
 				3E51E4581EEDCA7D006C5751 /* EmailProvider.m */,
+				3E51E45E1EEDD1BD006C5751 /* AlertProvider.h */,
+				3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */,
 			);
 			name = Provider;
 			sourceTree = "<group>";
@@ -236,9 +241,10 @@
 				3E51E4361EEDB706006C5751 /* ViewController.m in Sources */,
 				3E51E4331EEDB706006C5751 /* main.m in Sources */,
 				3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */,
+				3E51E4601EEDD1BD006C5751 /* AlertProvider.m in Sources */,
 				3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */,
 				3E51E4521EEDCA33006C5751 /* LogicManager.m in Sources */,
-				3E51E4481EEDBFEC006C5751 /* AlertTableView.m in Sources */,
+				3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */,
 				3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
 				3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */,
@@ -397,6 +403,7 @@
 				3E51E4411EEDB707006C5751 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

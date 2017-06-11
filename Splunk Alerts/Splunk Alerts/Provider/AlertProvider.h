@@ -1,15 +1,13 @@
 //
-//  Alert.m
+//  AlertProvider.h
 //  Splunk Alerts
 //
 //  Created by Renaud Holcombe on 6/11/17.
 //  Copyright © 2017 Renaud Holcombe. All rights reserved.
 //
 
-#import "Alert.h"
+#import <Foundation/Foundation.h>
 
-@implementation Alert
-
-@synthesize alertName, alertType, scheduleTime, searchString, isValid;
+@interface AlertProvider : NSObject
 
 @end
