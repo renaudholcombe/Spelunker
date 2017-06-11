@@ -9,5 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface AlertProvider : NSObject
+{
+    NSUserDefaults *userDefaults;
+}
+
++(id) sharedProvider;
+
+-(NSArray *) getAlerts;
+-(void) saveAlerts: (NSArray *) alerts;
 
 @end

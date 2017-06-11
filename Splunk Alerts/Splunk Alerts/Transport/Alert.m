@@ -13,3 +13,7 @@
 @synthesize alertName, alertType, scheduleTime, searchString, isValid;
 
 @end
+
+@implementation AlertList
+
+@end

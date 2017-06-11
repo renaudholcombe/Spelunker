@@ -8,13 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "Constants.h"
+#import <JSONModel.h>
 
-@interface Alert : NSObject
+@protocol Alert;
+
+@interface Alert :JSONModel
 
 @property (nonatomic, retain) NSString *alertName;
 @property (nonatomic) AlertType alertType;
 @property (nonatomic, retain) NSDate *scheduleTime;
 @property (nonatomic, retain) NSString *searchString;
-@property (nonatomic) Boolean isValid;
+@property (nonatomic) BOOL isValid;
+
+@end
+
+@interface AlertList: JSONModel
+
+@property (nonatomic) NSArray <Alert> *alertList;
 
 @end

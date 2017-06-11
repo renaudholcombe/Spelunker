@@ -20,9 +20,12 @@
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */; };
 		3E51E4601EEDD1BD006C5751 /* AlertProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */; };
+		420766CEBC060681A48586CD /* libPods-Splunk Alerts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2162442175A2FE4FA9B7F48E /* Pods-Splunk Alerts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splunk Alerts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts.release.xcconfig"; sourceTree = "<group>"; };
+		39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Splunk Alerts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E222A241EEDE9C100B9389D /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
 		3E222A251EEDE9C100B9389D /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertTableView.m; path = ViewController/AlertTableView.m; sourceTree = "<group>"; };
 		3E51E42B1EEDB706006C5751 /* Splunk Alerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splunk Alerts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +52,7 @@
 		3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkRetrieveOperation.m; path = Operation/SplunkRetrieveOperation.m; sourceTree = "<group>"; };
 		3E51E45E1EEDD1BD006C5751 /* AlertProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertProvider.h; path = Provider/AlertProvider.h; sourceTree = "<group>"; };
 		3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertProvider.m; path = Provider/AlertProvider.m; sourceTree = "<group>"; };
+		6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splunk Alerts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,17 +60,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420766CEBC060681A48586CD /* libPods-Splunk Alerts.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19D41CBDA2DB108428696739 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */,
+				2162442175A2FE4FA9B7F48E /* Pods-Splunk Alerts.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3E51E4221EEDB706006C5751 = {
 			isa = PBXGroup;
 			children = (
 				3E51E42D1EEDB706006C5751 /* Splunk Alerts */,
 				3E51E42C1EEDB706006C5751 /* Products */,
+				19D41CBDA2DB108428696739 /* Pods */,
+				9FDC1595D2B07C59791A61FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +182,14 @@
 			name = Operation;
 			sourceTree = "<group>";
 		};
+		9FDC1595D2B07C59791A61FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E51E43F1EEDB707006C5751 /* Build configuration list for PBXNativeTarget "Splunk Alerts" */;
 			buildPhases = (
+				C99E405A01981D620E65E032 /* [CP] Check Pods Manifest.lock */,
 				3E51E4271EEDB706006C5751 /* Sources */,
 				3E51E4281EEDB706006C5751 /* Frameworks */,
 				3E51E4291EEDB706006C5751 /* Resources */,
+				6BAC98B5B9F7B4EF083FA1F8 /* [CP] Embed Pods Frameworks */,
+				89B96B454C30AFD66C2418C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,6 +258,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6BAC98B5B9F7B4EF083FA1F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89B96B454C30AFD66C2418C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C99E405A01981D620E65E032 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3E51E4271EEDB706006C5751 /* Sources */ = {
@@ -356,6 +431,7 @@
 		};
 		3E51E4401EEDB707006C5751 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_STATIC_ANALYZER_MODE = deep;
@@ -371,6 +447,7 @@
 		};
 		3E51E4411EEDB707006C5751 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2162442175A2FE4FA9B7F48E /* Pods-Splunk Alerts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_STATIC_ANALYZER_MODE = deep;
