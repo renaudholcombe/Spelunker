@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Splunk Alerts.xcodeproj">
+      location = "group:/Volumes/ogma/sourceControl/SplunkAlerter/Splunk Alerts/Spelunker.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

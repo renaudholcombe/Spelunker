@@ -20,15 +20,15 @@
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */; };
 		3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* DataProvider.m */; };
-		420766CEBC060681A48586CD /* libPods-Splunk Alerts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */; };
+		420766CEBC060681A48586CD /* libPods-Spelunker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2162442175A2FE4FA9B7F48E /* Pods-Splunk Alerts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splunk Alerts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts.release.xcconfig"; sourceTree = "<group>"; };
-		39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Splunk Alerts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2162442175A2FE4FA9B7F48E /* Pods-Spelunker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spelunker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Spelunker.release.xcconfig"; sourceTree = "<group>"; };
+		39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Spelunker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E222A241EEDE9C100B9389D /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
 		3E222A251EEDE9C100B9389D /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertTableView.m; path = ViewController/AlertTableView.m; sourceTree = "<group>"; };
-		3E51E42B1EEDB706006C5751 /* Splunk Alerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splunk Alerts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E51E42B1EEDB706006C5751 /* Spelunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spelunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E51E42E1EEDB706006C5751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E51E42F1EEDB706006C5751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3E51E4321EEDB706006C5751 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkRetrieveOperation.m; path = Operation/SplunkRetrieveOperation.m; sourceTree = "<group>"; };
 		3E51E45E1EEDD1BD006C5751 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataProvider.h; path = Provider/DataProvider.h; sourceTree = "<group>"; };
 		3E51E45F1EEDD1BD006C5751 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataProvider.m; path = Provider/DataProvider.m; sourceTree = "<group>"; };
-		6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splunk Alerts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts.debug.xcconfig"; sourceTree = "<group>"; };
+		6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spelunker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Spelunker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420766CEBC060681A48586CD /* libPods-Splunk Alerts.a in Frameworks */,
+				420766CEBC060681A48586CD /* libPods-Spelunker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +70,8 @@
 		19D41CBDA2DB108428696739 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */,
-				2162442175A2FE4FA9B7F48E /* Pods-Splunk Alerts.release.xcconfig */,
+				6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */,
+				2162442175A2FE4FA9B7F48E /* Pods-Spelunker.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -79,7 +79,7 @@
 		3E51E4221EEDB706006C5751 = {
 			isa = PBXGroup;
 			children = (
-				3E51E42D1EEDB706006C5751 /* Splunk Alerts */,
+				3E51E42D1EEDB706006C5751 /* Spelunker */,
 				3E51E42C1EEDB706006C5751 /* Products */,
 				19D41CBDA2DB108428696739 /* Pods */,
 				9FDC1595D2B07C59791A61FA /* Frameworks */,
@@ -89,12 +89,12 @@
 		3E51E42C1EEDB706006C5751 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E51E42B1EEDB706006C5751 /* Splunk Alerts.app */,
+				3E51E42B1EEDB706006C5751 /* Spelunker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E51E42D1EEDB706006C5751 /* Splunk Alerts */ = {
+		3E51E42D1EEDB706006C5751 /* Spelunker */ = {
 			isa = PBXGroup;
 			children = (
 				3E51E45A1EEDCA85006C5751 /* Operation */,
@@ -112,6 +112,7 @@
 				3E51E43C1EEDB707006C5751 /* Info.plist */,
 				3E51E4311EEDB706006C5751 /* Supporting Files */,
 			);
+			name = Spelunker;
 			path = "Splunk Alerts";
 			sourceTree = "<group>";
 		};
@@ -185,7 +186,7 @@
 		9FDC1595D2B07C59791A61FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */,
+				39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,9 +194,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E51E42A1EEDB706006C5751 /* Splunk Alerts */ = {
+		3E51E42A1EEDB706006C5751 /* Spelunker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E51E43F1EEDB707006C5751 /* Build configuration list for PBXNativeTarget "Splunk Alerts" */;
+			buildConfigurationList = 3E51E43F1EEDB707006C5751 /* Build configuration list for PBXNativeTarget "Spelunker" */;
 			buildPhases = (
 				C99E405A01981D620E65E032 /* [CP] Check Pods Manifest.lock */,
 				3E51E4271EEDB706006C5751 /* Sources */,
@@ -208,9 +209,9 @@
 			);
 			dependencies = (
 			);
-			name = "Splunk Alerts";
+			name = Spelunker;
 			productName = "Splunk Alerts";
-			productReference = 3E51E42B1EEDB706006C5751 /* Splunk Alerts.app */;
+			productReference = 3E51E42B1EEDB706006C5751 /* Spelunker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E51E4261EEDB706006C5751 /* Build configuration list for PBXProject "Splunk Alerts" */;
+			buildConfigurationList = 3E51E4261EEDB706006C5751 /* Build configuration list for PBXProject "Spelunker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,7 +243,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E51E42A1EEDB706006C5751 /* Splunk Alerts */,
+				3E51E42A1EEDB706006C5751 /* Spelunker */,
 			);
 		};
 /* End PBXProject section */
@@ -431,7 +432,7 @@
 		};
 		3E51E4401EEDB707006C5751 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */;
+			baseConfigurationReference = 6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_STATIC_ANALYZER_MODE = deep;
@@ -439,7 +440,7 @@
 				DEVELOPMENT_TEAM = 4JBAT5F98N;
 				INFOPLIST_FILE = "Splunk Alerts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Hyperg0atDesign.Splunk-Alerts";
+				PRODUCT_BUNDLE_IDENTIFIER = Hyperg0atDesign.Spelunker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -447,7 +448,7 @@
 		};
 		3E51E4411EEDB707006C5751 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2162442175A2FE4FA9B7F48E /* Pods-Splunk Alerts.release.xcconfig */;
+			baseConfigurationReference = 2162442175A2FE4FA9B7F48E /* Pods-Spelunker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_STATIC_ANALYZER_MODE = deep;
@@ -455,7 +456,7 @@
 				DEVELOPMENT_TEAM = 4JBAT5F98N;
 				INFOPLIST_FILE = "Splunk Alerts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Hyperg0atDesign.Splunk-Alerts";
+				PRODUCT_BUNDLE_IDENTIFIER = Hyperg0atDesign.Spelunker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -464,7 +465,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E51E4261EEDB706006C5751 /* Build configuration list for PBXProject "Splunk Alerts" */ = {
+		3E51E4261EEDB706006C5751 /* Build configuration list for PBXProject "Spelunker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E51E43D1EEDB707006C5751 /* Debug */,
@@ -473,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E51E43F1EEDB707006C5751 /* Build configuration list for PBXNativeTarget "Splunk Alerts" */ = {
+		3E51E43F1EEDB707006C5751 /* Build configuration list for PBXNativeTarget "Spelunker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E51E4401EEDB707006C5751 /* Debug */,
