@@ -11,7 +11,7 @@
 		08CD7C0F3287AE71FCC88C262E5B5BA5 /* JSONModelLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A9B4729C01E8C08BAE03F80377AC6DC /* JSONModelLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A23F73F84E707A3504AAD09C06DE3A3 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC7848CEF9E23C9AA646C55850052 /* JSONModelError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1AAA70E698A9A1104C1A9F8727B82DDA /* JSONModel+networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 024CDF58966ABE07A33047CDBE207875 /* JSONModel+networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25EF306305EC8AAD26B3326FA99314EE /* Pods-Splunk Alerts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA1DE152455BC696FB01A9624615BCF /* Pods-Splunk Alerts-dummy.m */; };
+		25EF306305EC8AAD26B3326FA99314EE /* Pods-Spelunker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA1DE152455BC696FB01A9624615BCF /* Pods-Spelunker-dummy.m */; };
 		36AF5FD414EE93F0C9250394B9B920BC /* JSONValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EDFBCBA4E1CBD6CE261C920B24069B0 /* JSONValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		387C47199D0E566DCD7DA228B20297C5 /* JSONModelClassProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FE3D2D7796F46240884C61FAD0B56 /* JSONModelClassProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DCEF31E6E3DD839BBA09660EC45E04D /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C97923BA61B9B98A66BA4E0B2EF482 /* JSONModelArray.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -46,11 +46,11 @@
 
 /* Begin PBXFileReference section */
 		00ECEA49A3C9FA05B807495E73BE3931 /* JSONKeyMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONKeyMapper.h; path = JSONModel/JSONModelTransformations/JSONKeyMapper.h; sourceTree = "<group>"; };
-		01C94899F9F7AFCD0E41AC0DDAF73245 /* Pods-Splunk Alerts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Splunk Alerts.debug.xcconfig"; sourceTree = "<group>"; };
+		01C94899F9F7AFCD0E41AC0DDAF73245 /* Pods-Spelunker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Spelunker.debug.xcconfig"; sourceTree = "<group>"; };
 		024CDF58966ABE07A33047CDBE207875 /* JSONModel+networking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JSONModel+networking.h"; path = "JSONModel/JSONModelNetworking/JSONModel+networking.h"; sourceTree = "<group>"; };
 		078B0AE0C5F319408EA0612AF81E26B7 /* JSONAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = JSONModel/JSONModelNetworking/JSONAPI.h; sourceTree = "<group>"; };
 		0A28C311A3D27213DEB4B1175FC59F6D /* JSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = JSONModel/JSONModel/JSONModelError.h; sourceTree = "<group>"; };
-		0CA1DE152455BC696FB01A9624615BCF /* Pods-Splunk Alerts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Splunk Alerts-dummy.m"; sourceTree = "<group>"; };
+		0CA1DE152455BC696FB01A9624615BCF /* Pods-Spelunker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Spelunker-dummy.m"; sourceTree = "<group>"; };
 		11EEB87D68A0A31A5FDBE56AEAA0D009 /* JSONHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONHTTPClient.h; path = JSONModel/JSONModelNetworking/JSONHTTPClient.h; sourceTree = "<group>"; };
 		126F48784DDD04F31345C4F03037C027 /* JSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModel.m; path = JSONModel/JSONModel/JSONModel.m; sourceTree = "<group>"; };
 		12C97923BA61B9B98A66BA4E0B2EF482 /* JSONModelArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelArray.m; path = JSONModel/JSONModel/JSONModelArray.m; sourceTree = "<group>"; };
@@ -62,24 +62,24 @@
 		4778E41C70A4B2470658988DBCEA7F93 /* JSONModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSONModel.xcconfig; sourceTree = "<group>"; };
 		5EEA1796BC1C30B1DE6C1F5EE8BF1CA3 /* JSONModelArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelArray.h; path = JSONModel/JSONModel/JSONModelArray.h; sourceTree = "<group>"; };
 		7039D659C8B14F28F9701E7AB6160F3A /* JSONModelClassProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = JSONModel/JSONModel/JSONModelClassProperty.m; sourceTree = "<group>"; };
-		703B6049A86EB66077850F3107EE1780 /* Pods-Splunk Alerts-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Splunk Alerts-frameworks.sh"; sourceTree = "<group>"; };
+		703B6049A86EB66077850F3107EE1780 /* Pods-Spelunker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Spelunker-frameworks.sh"; sourceTree = "<group>"; };
 		739AE1A63BDA9EF913A833CE8A8D65FC /* JSONModel+networking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "JSONModel+networking.m"; path = "JSONModel/JSONModelNetworking/JSONModel+networking.m"; sourceTree = "<group>"; };
 		8B1630AD4657B842E99F2C088BA183C5 /* JSONModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONModel-prefix.pch"; sourceTree = "<group>"; };
 		8EBDEEF087336FBB0ED3061D1CBC0041 /* JSONKeyMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONKeyMapper.m; path = JSONModel/JSONModelTransformations/JSONKeyMapper.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		999BC7E3F081EB579D9E18DF712C583C /* Pods-Splunk Alerts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Splunk Alerts.release.xcconfig"; sourceTree = "<group>"; };
-		9BD32559C55006143DC78FA5E29F0B14 /* Pods-Splunk Alerts-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Splunk Alerts-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		999BC7E3F081EB579D9E18DF712C583C /* Pods-Spelunker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Spelunker.release.xcconfig"; sourceTree = "<group>"; };
+		9BD32559C55006143DC78FA5E29F0B14 /* Pods-Spelunker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = "Pods-Spelunker-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A032955935C1E4A997C090695782BAAB /* JSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModel.h; path = JSONModel/JSONModel/JSONModel.h; sourceTree = "<group>"; };
-		A91B91894C0C1B5578A33F127CCFC126 /* libPods-Splunk Alerts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Splunk Alerts.a"; path = "libPods-Splunk Alerts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91B91894C0C1B5578A33F127CCFC126 /* libPods-Splunk Alerts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Splunk Alerts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CA98CA676BFC6D8F2BC1645653FAE1 /* JSONValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONValueTransformer.m; path = JSONModel/JSONModelTransformations/JSONValueTransformer.m; sourceTree = "<group>"; };
 		C9C9EB2AB0D3A17606A413E684ADED0B /* NSArray+JSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+JSONModel.m"; path = "JSONModel/JSONModelCategories/NSArray+JSONModel.m"; sourceTree = "<group>"; };
 		D9371E95B6338D34B73F6B3C85F7A9F3 /* JSONModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSONModel-dummy.m"; sourceTree = "<group>"; };
 		DD6BC7848CEF9E23C9AA646C55850052 /* JSONModelError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelError.m; path = JSONModel/JSONModel/JSONModelError.m; sourceTree = "<group>"; };
-		E1B66C28AEA64B8B209DE3114B26C958 /* Pods-Splunk Alerts-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Splunk Alerts-resources.sh"; sourceTree = "<group>"; };
-		EE0FBA64A686E35B407AB5878A8B87F8 /* libJSONModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJSONModel.a; path = libJSONModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1B66C28AEA64B8B209DE3114B26C958 /* Pods-Spelunker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Spelunker-resources.sh"; sourceTree = "<group>"; };
+		EE0FBA64A686E35B407AB5878A8B87F8 /* libJSONModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3417FD55DF0D85CCCCA639EA2F8C827 /* NSArray+JSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+JSONModel.h"; path = "JSONModel/JSONModelCategories/NSArray+JSONModel.h"; sourceTree = "<group>"; };
 		F46CFFBC5BC888F7735EF7154D18B89D /* JSONHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONHTTPClient.m; path = JSONModel/JSONModelNetworking/JSONHTTPClient.m; sourceTree = "<group>"; };
-		F9AFFAAD2EE4954196186C2A5415F4E9 /* Pods-Splunk Alerts-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Splunk Alerts-acknowledgements.plist"; sourceTree = "<group>"; };
+		F9AFFAAD2EE4954196186C2A5415F4E9 /* Pods-Spelunker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Spelunker-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,6 @@
 				C9C9EB2AB0D3A17606A413E684ADED0B /* NSArray+JSONModel.m */,
 				8F3A5653403F96E9276466B16E517E59 /* Support Files */,
 			);
-			name = JSONModel;
 			path = JSONModel;
 			sourceTree = "<group>";
 		};
@@ -168,23 +167,23 @@
 		4FCA86AF55A262A0733650CFC6C93E5F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6BAA8F202CE58C5ACF07571A6601BAC3 /* Pods-Splunk Alerts */,
+				6BAA8F202CE58C5ACF07571A6601BAC3 /* Pods-Spelunker */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6BAA8F202CE58C5ACF07571A6601BAC3 /* Pods-Splunk Alerts */ = {
+		6BAA8F202CE58C5ACF07571A6601BAC3 /* Pods-Spelunker */ = {
 			isa = PBXGroup;
 			children = (
-				9BD32559C55006143DC78FA5E29F0B14 /* Pods-Splunk Alerts-acknowledgements.markdown */,
-				F9AFFAAD2EE4954196186C2A5415F4E9 /* Pods-Splunk Alerts-acknowledgements.plist */,
-				0CA1DE152455BC696FB01A9624615BCF /* Pods-Splunk Alerts-dummy.m */,
-				703B6049A86EB66077850F3107EE1780 /* Pods-Splunk Alerts-frameworks.sh */,
-				E1B66C28AEA64B8B209DE3114B26C958 /* Pods-Splunk Alerts-resources.sh */,
-				01C94899F9F7AFCD0E41AC0DDAF73245 /* Pods-Splunk Alerts.debug.xcconfig */,
-				999BC7E3F081EB579D9E18DF712C583C /* Pods-Splunk Alerts.release.xcconfig */,
+				9BD32559C55006143DC78FA5E29F0B14 /* Pods-Spelunker-acknowledgements.markdown */,
+				F9AFFAAD2EE4954196186C2A5415F4E9 /* Pods-Spelunker-acknowledgements.plist */,
+				0CA1DE152455BC696FB01A9624615BCF /* Pods-Spelunker-dummy.m */,
+				703B6049A86EB66077850F3107EE1780 /* Pods-Spelunker-frameworks.sh */,
+				E1B66C28AEA64B8B209DE3114B26C958 /* Pods-Spelunker-resources.sh */,
+				01C94899F9F7AFCD0E41AC0DDAF73245 /* Pods-Spelunker.debug.xcconfig */,
+				999BC7E3F081EB579D9E18DF712C583C /* Pods-Spelunker.release.xcconfig */,
 			);
-			name = "Pods-Splunk Alerts";
+			name = "Pods-Spelunker";
 			path = "Target Support Files/Pods-Splunk Alerts";
 			sourceTree = "<group>";
 		};
@@ -300,7 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25EF306305EC8AAD26B3326FA99314EE /* Pods-Splunk Alerts-dummy.m in Sources */,
+				25EF306305EC8AAD26B3326FA99314EE /* Pods-Spelunker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +383,7 @@
 		};
 		5907B46B13A273998290D4748F5F7C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01C94899F9F7AFCD0E41AC0DDAF73245 /* Pods-Splunk Alerts.debug.xcconfig */;
+			baseConfigurationReference = 01C94899F9F7AFCD0E41AC0DDAF73245 /* Pods-Spelunker.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -457,7 +456,7 @@
 		};
 		ADE2C1E399265BF5621C334B7AD17F12 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 999BC7E3F081EB579D9E18DF712C583C /* Pods-Splunk Alerts.release.xcconfig */;
+			baseConfigurationReference = 999BC7E3F081EB579D9E18DF712C583C /* Pods-Spelunker.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
