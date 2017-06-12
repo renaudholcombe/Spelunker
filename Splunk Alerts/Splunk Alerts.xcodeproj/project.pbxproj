@@ -19,7 +19,7 @@
 		3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4551EEDCA6E006C5751 /* SplunkProvider.m */; };
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */; };
-		3E51E4601EEDD1BD006C5751 /* AlertProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */; };
+		3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* DataProvider.m */; };
 		420766CEBC060681A48586CD /* libPods-Splunk Alerts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DF7492A87404FECC6B4F87 /* libPods-Splunk Alerts.a */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +50,8 @@
 		3E51E4581EEDCA7D006C5751 /* EmailProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailProvider.m; path = Provider/EmailProvider.m; sourceTree = "<group>"; };
 		3E51E45B1EEDCAD4006C5751 /* SplunkRetrieveOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplunkRetrieveOperation.h; path = Operation/SplunkRetrieveOperation.h; sourceTree = "<group>"; };
 		3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkRetrieveOperation.m; path = Operation/SplunkRetrieveOperation.m; sourceTree = "<group>"; };
-		3E51E45E1EEDD1BD006C5751 /* AlertProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertProvider.h; path = Provider/AlertProvider.h; sourceTree = "<group>"; };
-		3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertProvider.m; path = Provider/AlertProvider.m; sourceTree = "<group>"; };
+		3E51E45E1EEDD1BD006C5751 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataProvider.h; path = Provider/DataProvider.h; sourceTree = "<group>"; };
+		3E51E45F1EEDD1BD006C5751 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataProvider.m; path = Provider/DataProvider.m; sourceTree = "<group>"; };
 		6D195BA5F8234D780A67809E /* Pods-Splunk Alerts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splunk Alerts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Splunk Alerts/Pods-Splunk Alerts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,8 +167,8 @@
 				3E51E4551EEDCA6E006C5751 /* SplunkProvider.m */,
 				3E51E4571EEDCA7D006C5751 /* EmailProvider.h */,
 				3E51E4581EEDCA7D006C5751 /* EmailProvider.m */,
-				3E51E45E1EEDD1BD006C5751 /* AlertProvider.h */,
-				3E51E45F1EEDD1BD006C5751 /* AlertProvider.m */,
+				3E51E45E1EEDD1BD006C5751 /* DataProvider.h */,
+				3E51E45F1EEDD1BD006C5751 /* DataProvider.m */,
 			);
 			name = Provider;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				3E51E4361EEDB706006C5751 /* ViewController.m in Sources */,
 				3E51E4331EEDB706006C5751 /* main.m in Sources */,
 				3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */,
-				3E51E4601EEDD1BD006C5751 /* AlertProvider.m in Sources */,
+				3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */,
 				3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */,
 				3E51E4521EEDCA33006C5751 /* LogicManager.m in Sources */,
 				3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */,

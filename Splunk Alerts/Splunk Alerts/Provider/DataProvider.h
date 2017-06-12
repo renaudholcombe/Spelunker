@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AlertProvider : NSObject
+@interface DataProvider : NSObject
 {
     NSUserDefaults *userDefaults;
 }

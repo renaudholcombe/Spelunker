@@ -14,6 +14,7 @@
 
 @interface Alert :JSONModel
 
+@property (nonatomic, retain) NSUUID *alertId;
 @property (nonatomic, retain) NSString *alertName;
 @property (nonatomic) AlertType alertType;
 @property (nonatomic, retain) NSDate *scheduleTime;

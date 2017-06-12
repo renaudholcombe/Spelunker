@@ -10,7 +10,14 @@
 
 @implementation Alert
 
-@synthesize alertName, alertType, scheduleTime, searchString, isValid;
+@synthesize alertId, alertName, alertType, scheduleTime, searchString, isValid;
+
+-(id) init
+{
+    self = [super init];
+    alertId = [NSUUID UUID];
+    return self;
+}
 
 @end
 

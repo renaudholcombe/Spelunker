@@ -6,19 +6,19 @@
 //  Copyright © 2017 Renaud Holcombe. All rights reserved.
 //
 
-#import "AlertProvider.h"
+#import "DataProvider.h"
 #import "Alert.h"
 
-@implementation AlertProvider
+@implementation DataProvider
 
 NSString * const ALERTKEY = @"Alerts";
 
 + (id)sharedProvider
 {
-    static AlertProvider *alertProvider = nil;
+    static DataProvider *alertProvider = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        alertProvider = [[AlertProvider alloc] init];
+        alertProvider = [[DataProvider alloc] init];
     });
     return alertProvider;
 }
