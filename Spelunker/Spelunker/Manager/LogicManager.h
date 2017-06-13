@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataProvider.h"
 
 @interface LogicManager : NSObject
+{
+    DataProvider *dataProvider;
+}
 
 +(id)sharedManager;
 
--(NSArray *) getAlertList;
+-(void) getAlertList;
+-(void) saveAlertList: (NSArray *) alertList;
 
 @end

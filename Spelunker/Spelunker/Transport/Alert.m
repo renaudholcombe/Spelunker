@@ -10,13 +10,21 @@
 
 @implementation Alert
 
-@synthesize alertId, alertName, alertType, scheduleTime, searchString, isValid;
+@synthesize alertId, alertName, alertType, scheduleTime, searchString, isValid, timer;
 
 -(id) init
 {
     self = [super init];
-    alertId = [NSUUID UUID];
+    alertId = [[NSUUID UUID] UUIDString];
     return self;
+}
+
+-(void)SetDefaults
+{
+    alertName = @"Default alert";
+    alertType = Polling;
+    searchString = @"* earliest=-1h";
+    isValid = false;
 }
 
 @end

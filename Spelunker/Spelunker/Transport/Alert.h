@@ -14,12 +14,15 @@
 
 @interface Alert :JSONModel
 
-@property (nonatomic, retain) NSUUID *alertId;
+@property (nonatomic, retain) NSString *alertId;
 @property (nonatomic, retain) NSString *alertName;
 @property (nonatomic) AlertType alertType;
 @property (nonatomic, retain) NSDate *scheduleTime;
 @property (nonatomic, retain) NSString *searchString;
 @property (nonatomic) BOOL isValid;
+@property (nonatomic, retain) NSTimer <Ignore> *timer;
+
+-(void)SetDefaults;
 
 @end
 

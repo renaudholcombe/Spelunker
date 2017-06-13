@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -691,7 +692,7 @@
                                 <rect key="frame" x="20" y="48" width="223" height="394"/>
                                 <clipView key="contentView" id="lst-Pg-hC5">
                                     <rect key="frame" x="1" y="0.0" width="221" height="393"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="itj-kZ-sJT" id="Cee-Cb-Y3G" customClass="AlertTableView">
                                             <rect key="frame" x="0.0" y="0.0" width="221" height="370"/>
@@ -772,7 +773,7 @@
                                     <action selector="updateAlertName:" target="XfG-lQ-9wD" id="dB0-3s-c4e"/>
                                 </connections>
                             </textField>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="swS-JS-9sT">
+                            <button identifier="AlertTypeScheduled" translatesAutoresizingMaskIntoConstraints="NO" id="swS-JS-9sT">
                                 <rect key="frame" x="335" y="373" width="96" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="93" id="Lf1-Ba-i21"/>
@@ -785,7 +786,7 @@
                                     <action selector="updateAlertType:" target="XfG-lQ-9wD" id="dat-66-GvW"/>
                                 </connections>
                             </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Ukk-dr-3oy">
+                            <button identifier="AlertTypePolling" translatesAutoresizingMaskIntoConstraints="NO" id="Ukk-dr-3oy">
                                 <rect key="frame" x="436" y="373" width="111" height="18"/>
                                 <buttonCell key="cell" type="radio" title="Polling" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="x2u-Cz-RxF">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -812,7 +813,7 @@
                             </datePicker>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dz9-2v-HBV">
                                 <rect key="frame" x="461" y="7" width="102" height="32"/>
-                                <buttonCell key="cell" type="push" title="Save Alert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bfY-Ki-Blu">
+                                <buttonCell key="cell" type="push" title="Save Alert" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bfY-Ki-Blu">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -913,6 +914,7 @@
                         <outlet property="scheduledDatePicker" destination="2xR-kd-19F" id="IMc-lD-RQn"/>
                         <outlet property="scheduledRadio" destination="swS-JS-9sT" id="9eB-Bd-EQo"/>
                         <outlet property="tableScrollView" destination="e08-n3-Ler" id="qTb-8G-8g4"/>
+                        <outlet property="testAlertButton" destination="uRc-4b-2WF" id="Eao-kB-nLl"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

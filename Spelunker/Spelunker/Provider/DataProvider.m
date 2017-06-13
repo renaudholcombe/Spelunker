@@ -8,6 +8,7 @@
 
 #import "DataProvider.h"
 #import "Alert.h"
+#import "ErrorHandler.h"
 
 @implementation DataProvider
 
@@ -33,7 +34,8 @@ NSString * const ALERTKEY = @"Alerts";
 -(void)saveAlerts:(NSArray *)alerts
 {
     AlertList *list = [[AlertList alloc] init];
-    [list.alertList arrayByAddingObjectsFromArray:alerts];
+    list.alertList = [[NSArray <Alert> alloc] initWithArray:alerts];
+
 
     NSString *jsonString = [list toJSONString];
     [userDefaults setObject:jsonString forKey:ALERTKEY];
@@ -47,6 +49,13 @@ NSString * const ALERTKEY = @"Alerts";
 
     NSError *error = nil;
     AlertList *alertList = [[AlertList alloc] initWithString:alertsString error:&error];
+
+    if(error != nil)
+    {
+        [ErrorHandler PostError:[[ErrorMessage alloc] initWithMessage:@"Error retrieving alerts." withError:error]];
+
+        return [[NSArray alloc] init];
+    }
 
     return alertList.alertList;
 }

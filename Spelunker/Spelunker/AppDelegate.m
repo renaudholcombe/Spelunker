@@ -19,8 +19,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     logicManager = [LogicManager sharedManager];
-    alertList = [[NSMutableArray alloc] initWithArray:[logicManager getAlertList]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:alertList];
+    [logicManager getAlertList];
     }
 
 

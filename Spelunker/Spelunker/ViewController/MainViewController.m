@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "Alert.h"
 #import "Constants.h"
 
 @interface MainViewController ()
@@ -16,7 +15,7 @@
 
 @implementation MainViewController
 
-@synthesize alertNameTextField, scheduledRadio, pollingRadio, scheduledDatePicker, tableScrollView, addAlertButton, deleteAlertButton, saveAlertButton, alertSearchTextField, queryValidLabel;
+@synthesize alertNameTextField, scheduledRadio, pollingRadio, scheduledDatePicker, tableScrollView, addAlertButton, deleteAlertButton, saveAlertButton, alertSearchTextField, queryValidLabel, testAlertButton;
 
 @synthesize alertTable;
 
@@ -24,23 +23,16 @@
     [super viewDidLoad];
     [self.alertTable setDelegate:self];
     [self.alertTable setDataSource:self];
+    logicManager = [LogicManager sharedManager];
 
     //notifications!
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAlertList:) name:@"ReloadAlerts" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchSelectedAlert:) name:@"SwitchAlert" object:nil];
+    [self changeControlState:NO];
 }
 
 #pragma mark tableview delegate methods
-
-/*-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-{
-    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    Alert *alert = [alertList objectAtIndex:row];
-    //cellView.textField.stringValue = alert.alertName;
-    [cellView.textField setStringValue:alert.alertName];
-    return cellView;
-}*/
 
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
@@ -59,9 +51,17 @@
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification
 {
-    if([notification.object selectedRow] > alertList.count)
+    NSLog(@"selected row = %ld", (long) [notification.object selectedRow]);
+    NSInteger selectedRow = [notification.object selectedRow];
+    if(selectedRow == -1 || selectedRow > alertList.count)
+    {
+        [self changeControlState:NO];
         return;
+    }
+
     Alert *alert = [alertList objectAtIndex:[notification.object selectedRow]];
+    tempAlertId = alert.alertId;
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SwitchAlert" object:alert];
 }
 
@@ -76,12 +76,13 @@
 
 -(void) updateAlertList:(NSNotification *)notification
 {
-    alertList = [notification object];
+    alertList = notification.object;
     [alertTable reloadData];
 }
 
 -(void)switchSelectedAlert: (NSNotification *)notification
 {
+    [self changeControlState:YES];
     [self updateAlertControls:notification.object];
 }
 
@@ -90,6 +91,7 @@
 -(void)updateAlertControls: (Alert *)alert
 {
     alertNameTextField.stringValue = alert.alertName;
+    queryValidLabel.stringValue = @"";
 
     if(alert.alertType == Polling){
         pollingRadio.state = 1;
@@ -102,13 +104,30 @@
 
     }
 
-    saveAlertButton.enabled = false;
+    saveAlertButton.enabled = NO;
     alertSearchTextField.stringValue = alert.searchString;
 }
 
 -(void)alertChanged
 {
-    saveAlertButton.enabled = YES;
+    if(tempAlertId != nil)
+        saveAlertButton.enabled = YES;
+//    else
+//        [self changeControlState:NO];
+}
+
+-(void)changeControlState: (BOOL) value
+{
+    alertNameTextField.stringValue = @"";
+    alertNameTextField.enabled = value;
+    scheduledRadio.enabled = value;
+    scheduledRadio.state = !value;
+    pollingRadio.state = value;
+    pollingRadio.enabled = value;
+    scheduledDatePicker.hidden = !value;
+    alertSearchTextField.stringValue = @"";
+    alertSearchTextField.enabled = value;
+    testAlertButton.enabled = value;
 }
 
 #pragma mark action methods
@@ -118,9 +137,28 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
+    //do save stuff
+    Alert *currentAlert = alertList[[alertTable selectedRow]];
+    currentAlert.alertName = alertNameTextField.stringValue;
+    currentAlert.alertType = (pollingRadio.state)? Polling : Scheduled;
+    currentAlert.scheduleTime = scheduledDatePicker.dateValue;
+    currentAlert.searchString = alertSearchTextField.stringValue;
+    [logicManager saveAlertList:alertList];
+
+    tempAlertId = nil;
 }
 
 - (IBAction)addButtonPressed:(id)sender {
+    Alert *tempAlert = [[Alert alloc] init];
+    [tempAlert SetDefaults];
+    tempAlertId = tempAlert.alertId;
+
+    [alertList addObject:tempAlert];
+    [alertTable reloadData];
+
+    NSIndexSet *indexSet  = [NSIndexSet indexSetWithIndex:(alertList.count - 1)];
+    [alertTable selectRowIndexes:indexSet byExtendingSelection:NO];
+
 }
 
 - (IBAction)deleteButtonPressed:(id)sender {
@@ -130,6 +168,19 @@
 }
 
 - (IBAction)updateAlertType:(id)sender {
+
+    Alert *currentAlert = alertList[[alertTable selectedRow]];
+
+    if([[sender identifier]  isEqual: @"AlertTypePolling"]){
+        pollingRadio.state = 1;
+        scheduledDatePicker.hidden = YES;
+    }
+    else if([[sender identifier]  isEqual: @"AlertTypeScheduled"]){
+        scheduledRadio.state = 1;
+        scheduledDatePicker.hidden = NO;
+        scheduledDatePicker.dateValue = (currentAlert.scheduleTime == nil)? [NSDate date]: currentAlert.scheduleTime;
+    }
+
     [self alertChanged];
 }
 

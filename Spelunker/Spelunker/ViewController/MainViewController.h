@@ -8,10 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AlertTableView.h"
+#import "Alert.h"
+#import "LogicManager.h"
+
 
 @interface MainViewController : NSViewController<NSTableViewDelegate, NSTableViewDataSource>
 {
-    NSArray *alertList;
+    NSMutableArray *alertList;
+    NSString *tempAlertId;
+    LogicManager *logicManager;
 }
 
 @property (weak) IBOutlet NSTextField *alertNameTextField;
@@ -24,6 +29,7 @@
 @property (weak) IBOutlet NSButton *saveAlertButton;
 @property (weak) IBOutlet NSTextField *alertSearchTextField;
 @property (weak) IBOutlet NSTextField *queryValidLabel;
+@property (weak) IBOutlet NSButton *testAlertButton;
 
 @property (nonatomic, strong) IBOutlet AlertTableView *alertTable;
 

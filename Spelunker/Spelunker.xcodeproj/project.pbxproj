@@ -20,6 +20,7 @@
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */; };
 		3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* DataProvider.m */; };
+		3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E863EF51EEF45EE0044F01C /* ErrorHandler.m */; };
 		420766CEBC060681A48586CD /* libPods-Spelunker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkRetrieveOperation.m; path = Operation/SplunkRetrieveOperation.m; sourceTree = "<group>"; };
 		3E51E45E1EEDD1BD006C5751 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataProvider.h; path = Provider/DataProvider.h; sourceTree = "<group>"; };
 		3E51E45F1EEDD1BD006C5751 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataProvider.m; path = Provider/DataProvider.m; sourceTree = "<group>"; };
+		3E863EF41EEF45EE0044F01C /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = Utility/ErrorHandler.h; sourceTree = "<group>"; };
+		3E863EF51EEF45EE0044F01C /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = Utility/ErrorHandler.m; sourceTree = "<group>"; };
 		6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spelunker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spelunker/Pods-Spelunker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +100,7 @@
 		3E51E42D1EEDB706006C5751 /* Spelunker */ = {
 			isa = PBXGroup;
 			children = (
+				3E863EF31EEF45780044F01C /* Utility */,
 				3E51E45A1EEDCA85006C5751 /* Operation */,
 				3E51E4531EEDCA3F006C5751 /* Provider */,
 				3E51E44F1EEDCA1B006C5751 /* Manager */,
@@ -112,8 +116,7 @@
 				3E51E43C1EEDB707006C5751 /* Info.plist */,
 				3E51E4311EEDB706006C5751 /* Supporting Files */,
 			);
-			name = Spelunker;
-			path = "Spelunker";
+			path = Spelunker;
 			sourceTree = "<group>";
 		};
 		3E51E4311EEDB706006C5751 /* Supporting Files */ = {
@@ -183,6 +186,15 @@
 			name = Operation;
 			sourceTree = "<group>";
 		};
+		3E863EF31EEF45780044F01C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3E863EF41EEF45EE0044F01C /* ErrorHandler.h */,
+				3E863EF51EEF45EE0044F01C /* ErrorHandler.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		9FDC1595D2B07C59791A61FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +222,7 @@
 			dependencies = (
 			);
 			name = Spelunker;
-			productName = "Spelunker";
+			productName = Spelunker;
 			productReference = 3E51E42B1EEDB706006C5751 /* Spelunker.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -322,6 +334,7 @@
 				3E51E4521EEDCA33006C5751 /* LogicManager.m in Sources */,
 				3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */,
 				3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */,
+				3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
 				3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */,
 			);
@@ -438,7 +451,7 @@
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4JBAT5F98N;
-				INFOPLIST_FILE = "Spelunker/Info.plist";
+				INFOPLIST_FILE = Spelunker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hyperg0atDesign.Spelunker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,7 +467,7 @@
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4JBAT5F98N;
-				INFOPLIST_FILE = "Spelunker/Info.plist";
+				INFOPLIST_FILE = Spelunker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hyperg0atDesign.Spelunker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

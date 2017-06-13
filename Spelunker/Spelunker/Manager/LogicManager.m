@@ -12,6 +12,8 @@
 
 @implementation LogicManager
 
+#pragma mark initialization methods
+
 + (id) sharedManager {
     static LogicManager *logicManager = nil;
     static dispatch_once_t onceToken;
@@ -21,17 +23,32 @@
     return logicManager;
 }
 
--(NSArray *) getAlertList
+-(id) init
 {
-    //dummy code
-    Alert *alert = [[Alert alloc] init];
-    alert.alertName = @"dummy 1";
-    alert.alertType = Polling;
-    alert.searchString = @"test search string";
-    alert.isValid = false;
+    self = [super init];
 
-    return @[alert];
-    
+    dataProvider = [DataProvider sharedProvider];
+
+    return self;
+}
+
+-(void) getAlertList
+{
+    NSArray *alertList = [dataProvider getAlerts];
+    if(alertList.count == 0)
+    {
+        //dummy code
+        Alert *alert = [[Alert alloc] init];
+        [alert SetDefaults];
+
+        alertList =  @[alert];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:alertList];
+}
+
+-(void) saveAlertList:(NSArray *)alertList
+{
+    [dataProvider saveAlerts:alertList];
 }
 
 @end
