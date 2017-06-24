@@ -8,6 +8,17 @@
 
 #import "JSONValueTransformer+NSUUID.h"
 
-@implementation JSONValueTransformer_NSUUID
+@implementation JSONValueTransformer (NSUUID)
+
+-(NSUUID *) NSUUIDFromNSString:(NSString *)string
+{
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:string];
+    return uuid;
+}
+
+-(NSString *)JSONObjectFromNSUUID:(NSUUID *)uuid
+{
+    return [uuid UUIDString];
+}
 
 @end

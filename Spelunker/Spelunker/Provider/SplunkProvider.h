@@ -10,4 +10,8 @@
 
 @interface SplunkProvider : NSObject
 
++(id) sharedProvider;
+
+
+
 @end

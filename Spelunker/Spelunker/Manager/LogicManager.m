@@ -7,7 +7,6 @@
 //
 
 #import "LogicManager.h"
-#import "Alert.h"
 #import "Constants.h"
 
 @implementation LogicManager
@@ -29,22 +28,30 @@
 
     dataProvider = [DataProvider sharedProvider];
 
+    //initialize master array
+    //timer initialization logic will need to go here
+    alertDictionary = [[NSMutableDictionary alloc] init];
+    for (Alert *alert in [dataProvider getAlerts])
+    {
+        [alertDictionary setObject:alert forKey:alert.alertId];
+    }
+
     return self;
 }
 
 -(void) getAlertList
 {
-    NSArray *alertList = [dataProvider getAlerts];
-    if(alertList.count == 0)
-    {
-        //dummy code
-        Alert *alert = [[Alert alloc] init];
-        [alert SetDefaults];
-
-        alertList =  @[alert];
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:alertList];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:[alertDictionary allValues]];
 }
+
+-(void) saveAlert:(Alert *)alert
+{
+    [alertDictionary setObject:alert forKey:alert.alertId];
+    //timer modification code is going to live here;
+    [self saveAlertList:[alertDictionary allValues]];
+}
+
+#pragma mark internal methods
 
 -(void) saveAlertList:(NSArray *)alertList
 {

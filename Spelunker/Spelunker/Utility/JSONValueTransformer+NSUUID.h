@@ -6,8 +6,13 @@
 //  Copyright © 2017 Renaud Holcombe. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+#import "JSONModel/JSONModel.h"
 
-@interface JSONValueTransformer_NSUUID : NSObject
+@interface JSONValueTransformer (NSUUID)
+
+-(NSUUID *)NSUUIDFromNSString:(NSString *)string;
+-(NSString *)JSONObjectFromNSUUID:(NSUUID *)uuid;
+
 
 @end

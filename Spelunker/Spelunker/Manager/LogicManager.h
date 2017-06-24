@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "DataProvider.h"
+#import "Alert.h"
 
 @interface LogicManager : NSObject
 {
     DataProvider *dataProvider;
+    NSMutableDictionary *alertDictionary;
 }
 
 +(id)sharedManager;
 
 -(void) getAlertList;
--(void) saveAlertList: (NSArray *) alertList;
+-(void) saveAlert: (Alert *)alert;
 
 @end

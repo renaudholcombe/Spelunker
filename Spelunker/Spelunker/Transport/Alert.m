@@ -15,7 +15,10 @@
 -(id) init
 {
     self = [super init];
-    alertId = [[NSUUID UUID] UUIDString];
+    alertId = [NSUUID UUID];
+
+    [self SetDefaults];
+
     return self;
 }
 

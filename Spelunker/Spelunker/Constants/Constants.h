@@ -6,12 +6,12 @@
 //  Copyright © 2017 Renaud Holcombe. All rights reserved.
 //
 
-#ifndef Constants_h
-#define Constants_h
+//#ifndef Constants_h
+//#define Constants_h
 
 typedef NS_ENUM(NSInteger, AlertType) {
     Scheduled,
     Polling
 } ;
 
-#endif /* Constants_h */
+//#endif /* Constants_h */

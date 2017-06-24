@@ -15,7 +15,7 @@
 @interface MainViewController : NSViewController<NSTableViewDelegate, NSTableViewDataSource>
 {
     NSMutableArray *alertList;
-    NSString *tempAlertId;
+    NSUUID *tempAlertId;
     LogicManager *logicManager;
 }
 

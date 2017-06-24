@@ -10,4 +10,8 @@
 
 @implementation Settings
 
+@synthesize splunkAddress, splunkPassword, splunkUsername, splunkPortOverride;
+
+@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpPortOverride;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Settings.h"
 
 @interface DataProvider : NSObject
 {
@@ -17,5 +18,7 @@
 
 -(NSArray *) getAlerts;
 -(void) saveAlerts: (NSArray *) alerts;
+-(void) saveSettings: (Settings *) settings;
+-(Settings *) getSettings;
 
 @end

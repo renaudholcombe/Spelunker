@@ -143,14 +143,18 @@
     currentAlert.alertType = (pollingRadio.state)? Polling : Scheduled;
     currentAlert.scheduleTime = scheduledDatePicker.dateValue;
     currentAlert.searchString = alertSearchTextField.stringValue;
-    [logicManager saveAlertList:alertList];
+    [logicManager saveAlert:currentAlert];
 
-    tempAlertId = nil;
+    saveAlertButton.enabled = NO;
+    NSInteger currentRow = [alertTable selectedRow];
+    [alertTable reloadData];
+
+    NSIndexSet *indexSet  = [NSIndexSet indexSetWithIndex:currentRow];
+    [alertTable selectRowIndexes:indexSet byExtendingSelection:NO];
 }
 
 - (IBAction)addButtonPressed:(id)sender {
     Alert *tempAlert = [[Alert alloc] init];
-    [tempAlert SetDefaults];
     tempAlertId = tempAlert.alertId;
 
     [alertList addObject:tempAlert];

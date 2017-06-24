@@ -20,13 +20,24 @@
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */; };
 		3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* DataProvider.m */; };
+		3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */; };
+		3E66264D1EFDD6E700508793 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E66264C1EFDD6E700508793 /* Settings.m */; };
 		3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E863EF51EEF45EE0044F01C /* ErrorHandler.m */; };
-		420766CEBC060681A48586CD /* libPods-Spelunker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */; };
+		3EF1C0741EFDE13200E91121 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */; };
+		3EF1C0761EFDE14000E91121 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF1C0751EFDE14000E91121 /* Security.framework */; };
+		3EF1C07B1EFDE15D00E91121 /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0781EFDE15D00E91121 /* SAMKeychain.m */; };
+		3EF1C07C1EFDE15D00E91121 /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C07A1EFDE15D00E91121 /* SAMKeychainQuery.m */; };
+		3EF1C0AA1EFDE4FC00E91121 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0A51EFDE4FC00E91121 /* JSONModel.m */; };
+		3EF1C0AB1EFDE4FC00E91121 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0A71EFDE4FC00E91121 /* JSONModelClassProperty.m */; };
+		3EF1C0AC1EFDE4FC00E91121 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0A91EFDE4FC00E91121 /* JSONModelError.m */; };
+		3EF1C0B31EFDE50800E91121 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0AE1EFDE50800E91121 /* JSONAPI.m */; };
+		3EF1C0B41EFDE50800E91121 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0B01EFDE50800E91121 /* JSONHTTPClient.m */; };
+		3EF1C0B51EFDE50800E91121 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0B21EFDE50800E91121 /* JSONModel+networking.m */; };
+		3EF1C0BA1EFDE51600E91121 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0B71EFDE51600E91121 /* JSONKeyMapper.m */; };
+		3EF1C0BB1EFDE51600E91121 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0B91EFDE51600E91121 /* JSONValueTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2162442175A2FE4FA9B7F48E /* Pods-Spelunker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spelunker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spelunker/Pods-Spelunker.release.xcconfig"; sourceTree = "<group>"; };
-		39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Spelunker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E222A241EEDE9C100B9389D /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
 		3E222A251EEDE9C100B9389D /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertTableView.m; path = ViewController/AlertTableView.m; sourceTree = "<group>"; };
 		3E51E42B1EEDB706006C5751 /* Spelunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spelunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,9 +64,35 @@
 		3E51E45C1EEDCAD4006C5751 /* SplunkRetrieveOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkRetrieveOperation.m; path = Operation/SplunkRetrieveOperation.m; sourceTree = "<group>"; };
 		3E51E45E1EEDD1BD006C5751 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataProvider.h; path = Provider/DataProvider.h; sourceTree = "<group>"; };
 		3E51E45F1EEDD1BD006C5751 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataProvider.m; path = Provider/DataProvider.m; sourceTree = "<group>"; };
+		3E6626451EFDD23200508793 /* JSONValueTransformer+NSUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JSONValueTransformer+NSUUID.h"; path = "Utility/JSONValueTransformer+NSUUID.h"; sourceTree = "<group>"; };
+		3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JSONValueTransformer+NSUUID.m"; path = "Utility/JSONValueTransformer+NSUUID.m"; sourceTree = "<group>"; };
+		3E66264B1EFDD6E700508793 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Transport/Settings.h; sourceTree = "<group>"; };
+		3E66264C1EFDD6E700508793 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Transport/Settings.m; sourceTree = "<group>"; };
 		3E863EF41EEF45EE0044F01C /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = Utility/ErrorHandler.h; sourceTree = "<group>"; };
 		3E863EF51EEF45EE0044F01C /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = Utility/ErrorHandler.m; sourceTree = "<group>"; };
-		6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spelunker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spelunker/Pods-Spelunker.debug.xcconfig"; sourceTree = "<group>"; };
+		3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3EF1C0751EFDE14000E91121 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3EF1C0771EFDE15D00E91121 /* SAMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SAMKeychain.h; path = ThirdParty/SAMKeychain/SAMKeychain.h; sourceTree = "<group>"; };
+		3EF1C0781EFDE15D00E91121 /* SAMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SAMKeychain.m; path = ThirdParty/SAMKeychain/SAMKeychain.m; sourceTree = "<group>"; };
+		3EF1C0791EFDE15D00E91121 /* SAMKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SAMKeychainQuery.h; path = ThirdParty/SAMKeychain/SAMKeychainQuery.h; sourceTree = "<group>"; };
+		3EF1C07A1EFDE15D00E91121 /* SAMKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SAMKeychainQuery.m; path = ThirdParty/SAMKeychain/SAMKeychainQuery.m; sourceTree = "<group>"; };
+		3EF1C0A31EFDE4EE00E91121 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelLib.h; path = ThirdParty/JSONModel/JSONModelLib.h; sourceTree = "<group>"; };
+		3EF1C0A41EFDE4FC00E91121 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModel.h; path = ThirdParty/JSONModel/JSONModel/JSONModel.h; sourceTree = "<group>"; };
+		3EF1C0A51EFDE4FC00E91121 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModel.m; path = ThirdParty/JSONModel/JSONModel/JSONModel.m; sourceTree = "<group>"; };
+		3EF1C0A61EFDE4FC00E91121 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelClassProperty.h; path = ThirdParty/JSONModel/JSONModel/JSONModelClassProperty.h; sourceTree = "<group>"; };
+		3EF1C0A71EFDE4FC00E91121 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = ThirdParty/JSONModel/JSONModel/JSONModelClassProperty.m; sourceTree = "<group>"; };
+		3EF1C0A81EFDE4FC00E91121 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = ThirdParty/JSONModel/JSONModel/JSONModelError.h; sourceTree = "<group>"; };
+		3EF1C0A91EFDE4FC00E91121 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModelError.m; path = ThirdParty/JSONModel/JSONModel/JSONModelError.m; sourceTree = "<group>"; };
+		3EF1C0AD1EFDE50800E91121 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = ThirdParty/JSONModel/JSONModelNetworking/JSONAPI.h; sourceTree = "<group>"; };
+		3EF1C0AE1EFDE50800E91121 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONAPI.m; path = ThirdParty/JSONModel/JSONModelNetworking/JSONAPI.m; sourceTree = "<group>"; };
+		3EF1C0AF1EFDE50800E91121 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONHTTPClient.h; path = ThirdParty/JSONModel/JSONModelNetworking/JSONHTTPClient.h; sourceTree = "<group>"; };
+		3EF1C0B01EFDE50800E91121 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONHTTPClient.m; path = ThirdParty/JSONModel/JSONModelNetworking/JSONHTTPClient.m; sourceTree = "<group>"; };
+		3EF1C0B11EFDE50800E91121 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JSONModel+networking.h"; path = "ThirdParty/JSONModel/JSONModelNetworking/JSONModel+networking.h"; sourceTree = "<group>"; };
+		3EF1C0B21EFDE50800E91121 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JSONModel+networking.m"; path = "ThirdParty/JSONModel/JSONModelNetworking/JSONModel+networking.m"; sourceTree = "<group>"; };
+		3EF1C0B61EFDE51600E91121 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKeyMapper.h; path = ThirdParty/JSONModel/JSONModelTransformations/JSONKeyMapper.h; sourceTree = "<group>"; };
+		3EF1C0B71EFDE51600E91121 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKeyMapper.m; path = ThirdParty/JSONModel/JSONModelTransformations/JSONKeyMapper.m; sourceTree = "<group>"; };
+		3EF1C0B81EFDE51600E91121 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONValueTransformer.h; path = ThirdParty/JSONModel/JSONModelTransformations/JSONValueTransformer.h; sourceTree = "<group>"; };
+		3EF1C0B91EFDE51600E91121 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONValueTransformer.m; path = ThirdParty/JSONModel/JSONModelTransformations/JSONValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,29 +100,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420766CEBC060681A48586CD /* libPods-Spelunker.a in Frameworks */,
+				3EF1C0761EFDE14000E91121 /* Security.framework in Frameworks */,
+				3EF1C0741EFDE13200E91121 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19D41CBDA2DB108428696739 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */,
-				2162442175A2FE4FA9B7F48E /* Pods-Spelunker.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		3E51E4221EEDB706006C5751 = {
 			isa = PBXGroup;
 			children = (
 				3E51E42D1EEDB706006C5751 /* Spelunker */,
 				3E51E42C1EEDB706006C5751 /* Products */,
-				19D41CBDA2DB108428696739 /* Pods */,
-				9FDC1595D2B07C59791A61FA /* Frameworks */,
+				3EF1C0721EFDE13200E91121 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +128,7 @@
 		3E51E42D1EEDB706006C5751 /* Spelunker */ = {
 			isa = PBXGroup;
 			children = (
+				3EF1C06F1EFDDE2800E91121 /* ThirdParty */,
 				3E863EF31EEF45780044F01C /* Utility */,
 				3E51E45A1EEDCA85006C5751 /* Operation */,
 				3E51E4531EEDCA3F006C5751 /* Provider */,
@@ -151,6 +180,8 @@
 			children = (
 				3E51E44C1EEDCA15006C5751 /* Alert.h */,
 				3E51E44D1EEDCA15006C5751 /* Alert.m */,
+				3E66264B1EFDD6E700508793 /* Settings.h */,
+				3E66264C1EFDD6E700508793 /* Settings.m */,
 			);
 			name = Transport;
 			sourceTree = "<group>";
@@ -191,16 +222,87 @@
 			children = (
 				3E863EF41EEF45EE0044F01C /* ErrorHandler.h */,
 				3E863EF51EEF45EE0044F01C /* ErrorHandler.m */,
+				3E6626451EFDD23200508793 /* JSONValueTransformer+NSUUID.h */,
+				3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
 		};
-		9FDC1595D2B07C59791A61FA /* Frameworks */ = {
+		3EF1C06F1EFDDE2800E91121 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				39DF7492A87404FECC6B4F87 /* libPods-Spelunker.a */,
+				3EF1C0711EFDDE3D00E91121 /* SAMKeychain */,
+				3EF1C0701EFDDE3000E91121 /* JSONModel */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		3EF1C0701EFDDE3000E91121 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				3EF1C0A31EFDE4EE00E91121 /* JSONModelLib.h */,
+				3EF1C0A21EFDE4DC00E91121 /* JSONModelTransformations */,
+				3EF1C0A11EFDE4CE00E91121 /* JSONModelNetworking */,
+				3EF1C0A01EFDE49D00E91121 /* JSONModel */,
+			);
+			name = JSONModel;
+			sourceTree = "<group>";
+		};
+		3EF1C0711EFDDE3D00E91121 /* SAMKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				3EF1C0771EFDE15D00E91121 /* SAMKeychain.h */,
+				3EF1C0781EFDE15D00E91121 /* SAMKeychain.m */,
+				3EF1C0791EFDE15D00E91121 /* SAMKeychainQuery.h */,
+				3EF1C07A1EFDE15D00E91121 /* SAMKeychainQuery.m */,
+			);
+			name = SAMKeychain;
+			sourceTree = "<group>";
+		};
+		3EF1C0721EFDE13200E91121 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EF1C0751EFDE14000E91121 /* Security.framework */,
+				3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3EF1C0A01EFDE49D00E91121 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				3EF1C0A41EFDE4FC00E91121 /* JSONModel.h */,
+				3EF1C0A51EFDE4FC00E91121 /* JSONModel.m */,
+				3EF1C0A61EFDE4FC00E91121 /* JSONModelClassProperty.h */,
+				3EF1C0A71EFDE4FC00E91121 /* JSONModelClassProperty.m */,
+				3EF1C0A81EFDE4FC00E91121 /* JSONModelError.h */,
+				3EF1C0A91EFDE4FC00E91121 /* JSONModelError.m */,
+			);
+			name = JSONModel;
+			sourceTree = "<group>";
+		};
+		3EF1C0A11EFDE4CE00E91121 /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				3EF1C0AD1EFDE50800E91121 /* JSONAPI.h */,
+				3EF1C0AE1EFDE50800E91121 /* JSONAPI.m */,
+				3EF1C0AF1EFDE50800E91121 /* JSONHTTPClient.h */,
+				3EF1C0B01EFDE50800E91121 /* JSONHTTPClient.m */,
+				3EF1C0B11EFDE50800E91121 /* JSONModel+networking.h */,
+				3EF1C0B21EFDE50800E91121 /* JSONModel+networking.m */,
+			);
+			name = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		3EF1C0A21EFDE4DC00E91121 /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				3EF1C0B61EFDE51600E91121 /* JSONKeyMapper.h */,
+				3EF1C0B71EFDE51600E91121 /* JSONKeyMapper.m */,
+				3EF1C0B81EFDE51600E91121 /* JSONValueTransformer.h */,
+				3EF1C0B91EFDE51600E91121 /* JSONValueTransformer.m */,
+			);
+			name = JSONModelTransformations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,12 +312,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E51E43F1EEDB707006C5751 /* Build configuration list for PBXNativeTarget "Spelunker" */;
 			buildPhases = (
-				C99E405A01981D620E65E032 /* [CP] Check Pods Manifest.lock */,
 				3E51E4271EEDB706006C5751 /* Sources */,
 				3E51E4281EEDB706006C5751 /* Frameworks */,
 				3E51E4291EEDB706006C5751 /* Resources */,
-				6BAC98B5B9F7B4EF083FA1F8 /* [CP] Embed Pods Frameworks */,
-				89B96B454C30AFD66C2418C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,71 +371,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		6BAC98B5B9F7B4EF083FA1F8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spelunker/Pods-Spelunker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89B96B454C30AFD66C2418C2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spelunker/Pods-Spelunker-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C99E405A01981D620E65E032 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		3E51E4271EEDB706006C5751 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF1C0B41EFDE50800E91121 /* JSONHTTPClient.m in Sources */,
+				3EF1C07C1EFDE15D00E91121 /* SAMKeychainQuery.m in Sources */,
+				3EF1C0AC1EFDE4FC00E91121 /* JSONModelError.m in Sources */,
 				3E51E44E1EEDCA15006C5751 /* Alert.m in Sources */,
+				3EF1C0BA1EFDE51600E91121 /* JSONKeyMapper.m in Sources */,
 				3E51E4361EEDB706006C5751 /* ViewController.m in Sources */,
 				3E51E4331EEDB706006C5751 /* main.m in Sources */,
 				3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */,
 				3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */,
 				3E51E45D1EEDCAD4006C5751 /* SplunkRetrieveOperation.m in Sources */,
+				3EF1C0B31EFDE50800E91121 /* JSONAPI.m in Sources */,
+				3EF1C0BB1EFDE51600E91121 /* JSONValueTransformer.m in Sources */,
+				3E66264D1EFDD6E700508793 /* Settings.m in Sources */,
+				3EF1C07B1EFDE15D00E91121 /* SAMKeychain.m in Sources */,
 				3E51E4521EEDCA33006C5751 /* LogicManager.m in Sources */,
 				3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */,
+				3EF1C0AB1EFDE4FC00E91121 /* JSONModelClassProperty.m in Sources */,
 				3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */,
+				3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */,
+				3EF1C0B51EFDE50800E91121 /* JSONModel+networking.m in Sources */,
 				3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
 				3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */,
+				3EF1C0AA1EFDE4FC00E91121 /* JSONModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,12 +508,12 @@
 		};
 		3E51E4401EEDB707006C5751 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D195BA5F8234D780A67809E /* Pods-Spelunker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4JBAT5F98N;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = Spelunker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hyperg0atDesign.Spelunker;
@@ -461,12 +524,12 @@
 		};
 		3E51E4411EEDB707006C5751 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2162442175A2FE4FA9B7F48E /* Pods-Spelunker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4JBAT5F98N;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = Spelunker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hyperg0atDesign.Spelunker;
