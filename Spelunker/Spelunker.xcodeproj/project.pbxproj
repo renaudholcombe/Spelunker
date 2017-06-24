@@ -10,7 +10,6 @@
 		3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E222A251EEDE9C100B9389D /* AlertTableView.m */; };
 		3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E42F1EEDB706006C5751 /* AppDelegate.m */; };
 		3E51E4331EEDB706006C5751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4321EEDB706006C5751 /* main.m */; };
-		3E51E4361EEDB706006C5751 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4351EEDB706006C5751 /* ViewController.m */; };
 		3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4371EEDB706006C5751 /* Assets.xcassets */; };
 		3E51E43B1EEDB707006C5751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4391EEDB707006C5751 /* Main.storyboard */; };
 		3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4441EEDB7C6006C5751 /* MainViewController.m */; };
@@ -23,6 +22,7 @@
 		3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */; };
 		3E66264D1EFDD6E700508793 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E66264C1EFDD6E700508793 /* Settings.m */; };
 		3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E863EF51EEF45EE0044F01C /* ErrorHandler.m */; };
+		3EED2A711EFDF829000AE5AE /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED2A6F1EFDF829000AE5AE /* PreferencesViewController.m */; };
 		3EF1C0741EFDE13200E91121 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */; };
 		3EF1C0761EFDE14000E91121 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF1C0751EFDE14000E91121 /* Security.framework */; };
 		3EF1C07B1EFDE15D00E91121 /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0781EFDE15D00E91121 /* SAMKeychain.m */; };
@@ -44,8 +44,6 @@
 		3E51E42E1EEDB706006C5751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E51E42F1EEDB706006C5751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3E51E4321EEDB706006C5751 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3E51E4341EEDB706006C5751 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3E51E4351EEDB706006C5751 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3E51E4371EEDB706006C5751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E51E43A1EEDB707006C5751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E51E43C1EEDB707006C5751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		3E66264C1EFDD6E700508793 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Transport/Settings.m; sourceTree = "<group>"; };
 		3E863EF41EEF45EE0044F01C /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = Utility/ErrorHandler.h; sourceTree = "<group>"; };
 		3E863EF51EEF45EE0044F01C /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = Utility/ErrorHandler.m; sourceTree = "<group>"; };
+		3EED2A6F1EFDF829000AE5AE /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = ViewController/PreferencesViewController.m; sourceTree = "<group>"; };
+		3EED2A701EFDF829000AE5AE /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = ViewController/PreferencesViewController.h; sourceTree = "<group>"; };
 		3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3EF1C0751EFDE14000E91121 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3EF1C0771EFDE15D00E91121 /* SAMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SAMKeychain.h; path = ThirdParty/SAMKeychain/SAMKeychain.h; sourceTree = "<group>"; };
@@ -138,8 +138,6 @@
 				3E51E4421EEDB78B006C5751 /* ViewController */,
 				3E51E42E1EEDB706006C5751 /* AppDelegate.h */,
 				3E51E42F1EEDB706006C5751 /* AppDelegate.m */,
-				3E51E4341EEDB706006C5751 /* ViewController.h */,
-				3E51E4351EEDB706006C5751 /* ViewController.m */,
 				3E51E4371EEDB706006C5751 /* Assets.xcassets */,
 				3E51E4391EEDB707006C5751 /* Main.storyboard */,
 				3E51E43C1EEDB707006C5751 /* Info.plist */,
@@ -159,6 +157,8 @@
 		3E51E4421EEDB78B006C5751 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3EED2A6F1EFDF829000AE5AE /* PreferencesViewController.m */,
+				3EED2A701EFDF829000AE5AE /* PreferencesViewController.h */,
 				3E222A241EEDE9C100B9389D /* AlertTableView.h */,
 				3E222A251EEDE9C100B9389D /* AlertTableView.m */,
 				3E51E4431EEDB7C6006C5751 /* MainViewController.h */,
@@ -381,7 +381,6 @@
 				3EF1C0AC1EFDE4FC00E91121 /* JSONModelError.m in Sources */,
 				3E51E44E1EEDCA15006C5751 /* Alert.m in Sources */,
 				3EF1C0BA1EFDE51600E91121 /* JSONKeyMapper.m in Sources */,
-				3E51E4361EEDB706006C5751 /* ViewController.m in Sources */,
 				3E51E4331EEDB706006C5751 /* main.m in Sources */,
 				3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */,
 				3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */,
@@ -398,6 +397,7 @@
 				3EF1C0B51EFDE50800E91121 /* JSONModel+networking.m in Sources */,
 				3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
+				3EED2A711EFDF829000AE5AE /* PreferencesViewController.m in Sources */,
 				3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */,
 				3EF1C0AA1EFDE4FC00E91121 /* JSONModel.m in Sources */,
 			);

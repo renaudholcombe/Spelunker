@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "Constants.h"
 
+
 @interface MainViewController ()
 
 @end
@@ -29,7 +30,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAlertList:) name:@"ReloadAlerts" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchSelectedAlert:) name:@"SwitchAlert" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPreferencesPane) name:@"OpenPreferences" object:nil];
+
     [self changeControlState:NO];
+}
+
+-(void) openPreferencesPane
+{
+
+    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSViewController *preferences = [storyboard instantiateControllerWithIdentifier:@"PreferencesViewController"];
+
+    [self presentViewControllerAsSheet:preferences];
 }
 
 #pragma mark tableview delegate methods

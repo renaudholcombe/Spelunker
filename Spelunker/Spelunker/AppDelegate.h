@@ -15,5 +15,7 @@
 
 @property NSMutableArray *alertList;
 
+- (IBAction)showPreferences:(id)sender;
+
 @end
 

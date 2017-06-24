@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PreferencesViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,5 +28,10 @@
     // Insert code here to tear down your application
 }
 
+
+- (IBAction)showPreferences:(id)sender {
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenPreferences" object:nil];
+}
 
 @end
