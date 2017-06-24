@@ -11,19 +11,16 @@
 @interface Settings : NSObject
 
 //splunk settings
-@property (nonatomic, retain) NSString *splunkAddress;
-@property (nonatomic, retain) NSString *splunkUsername;
-@property (nonatomic, retain) NSString *splunkPassword;
+@property (nonatomic, retain, setter=setSplunkServer:) NSString *splunkServer;
+@property (nonatomic, retain, setter=setSplunkUsername:) NSString *splunkUsername;
+@property (nonatomic, retain, setter=setSplunkPassword:) NSString *splunkPassword;
 @property (nonatomic) NSInteger splunkPortOverride;
 
 //smtp settings
-@property (nonatomic, retain) NSString *smtpServer;
+@property (nonatomic, retain, setter=setSmtpServer:) NSString *smtpServer;
 @property (nonatomic) BOOL smtpUseSSL;
-@property (nonatomic, retain) NSString *smtpUsername;
-@property (nonatomic, retain) NSString *smtpPassword;
-@property (nonatomic) NSInteger smtpPortOverride;
-
-
-
+@property (nonatomic, retain, setter=setSmtpEmailAddress:) NSString *smtpEmailAddress;
+@property (nonatomic, retain, setter=setSmtpUsername:) NSString *smtpUsername;
+@property (nonatomic, retain, setter=setSmtpPassword:) NSString *smtpPassword;
 
 @end

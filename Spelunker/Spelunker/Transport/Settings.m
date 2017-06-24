@@ -10,8 +10,55 @@
 
 @implementation Settings
 
-@synthesize splunkAddress, splunkPassword, splunkUsername, splunkPortOverride;
+@synthesize splunkServer, splunkPassword, splunkUsername, splunkPortOverride;
 
-@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpPortOverride;
+@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpEmailAddress;
+
+-(id) init
+{
+    self = [super init];
+    splunkServer = @"";
+    splunkUsername = @"";
+    splunkPassword = @"";
+
+    smtpPassword = @"";
+    smtpUsername = @"";
+    smtpServer = @"";
+    smtpEmailAddress = @"";
+
+    return self;
+}
+
+-(void)setSplunkServer:(NSString *)server
+{
+    if(server != nil)
+        splunkServer = server;
+
+}
+
+-(void)setSplunkUsername:(NSString *)username
+{
+    if(username != nil)
+        splunkUsername = username;
+
+}
+
+-(void)setSmtpServer:(NSString *)server
+{
+    if(server != nil)
+        smtpServer = server;
+}
+
+-(void)setSmtpUsername:(NSString *)username
+{
+    if(username != nil)
+        smtpUsername = username;
+}
+
+-(void)setSmtpEmailAddress:(NSString *)emailAddress
+{
+    if(emailAddress != nil)
+        smtpEmailAddress = emailAddress;
+}
 
 @end

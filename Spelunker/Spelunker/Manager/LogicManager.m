@@ -39,6 +39,8 @@
     return self;
 }
 
+#pragma mark alert methods
+
 -(void) getAlertList
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:[alertDictionary allValues]];
@@ -49,6 +51,18 @@
     [alertDictionary setObject:alert forKey:alert.alertId];
     //timer modification code is going to live here;
     [self saveAlertList:[alertDictionary allValues]];
+}
+
+#pragma mark settings methods
+
+-(Settings *)loadSettings
+{
+    return [dataProvider getSettings];
+}
+
+-(void) saveSettings:(Settings *)settings
+{
+    [dataProvider saveSettings:settings];
 }
 
 #pragma mark internal methods

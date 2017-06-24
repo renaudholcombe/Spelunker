@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DataProvider.h"
 #import "Alert.h"
+#import "Settings.h"
 
 @interface LogicManager : NSObject
 {
@@ -20,5 +21,8 @@
 
 -(void) getAlertList;
 -(void) saveAlert: (Alert *)alert;
+
+-(Settings *) loadSettings;
+-(void) saveSettings: (Settings *) settings;
 
 @end
