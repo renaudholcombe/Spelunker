@@ -11,7 +11,7 @@
 @implementation PreferencesViewController
 
 @synthesize splunkPortOverride, splunkPassword, splunkUsername, splunkAddressTextField;
-@synthesize emailUseSSL, emailServer, emailPassword, emailUsername, emailAddress;
+@synthesize emailUseSSL, emailServer, emailPassword, emailUsername, emailAddress, emailPortOverride;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,7 @@
     //set controls
     splunkAddressTextField.stringValue = settings.splunkServer;
 
-    if(settings.splunkPortOverride != 0)
+    if(settings.splunkPortOverride != 8000)
         splunkPortOverride.integerValue = settings.splunkPortOverride;
     else
         splunkPortOverride.stringValue = @"";
@@ -39,6 +39,10 @@
     emailUsername.stringValue = settings.smtpUsername;
     emailPassword.stringValue = settings.smtpPassword;
     emailAddress.stringValue = settings.smtpEmailAddress;
+    if(settings.smtpPortOverride != 587)
+        emailPortOverride.integerValue = settings.smtpPortOverride;
+    else
+        emailPortOverride.stringValue = @"";
 }
 
 #pragma mark action methods
@@ -52,7 +56,7 @@
     Settings *settings = [[Settings alloc] init];
 
     settings.splunkServer = splunkAddressTextField.stringValue;
-    settings.splunkPortOverride = splunkPortOverride.integerValue;
+    settings.splunkPortOverride = (splunkPortOverride.integerValue == 0) ? 8000: splunkPortOverride.integerValue;
     settings.splunkPassword = splunkPassword.stringValue;
     settings.splunkUsername = splunkUsername.stringValue;
 
@@ -61,9 +65,16 @@
     settings.smtpPassword = emailPassword.stringValue;
     settings.smtpServer = emailServer.stringValue;
     settings.smtpUseSSL = emailUseSSL.integerValue;
+    settings.smtpPortOverride = (emailPortOverride.integerValue == 0) ? 587 : emailPortOverride.integerValue;
 
     [logicManager saveSettings:settings];
 
     [self dismissController:self];
+}
+
+- (IBAction)testEmail:(id)sender {
+}
+
+- (IBAction)testSplunk:(id)sender {
 }
 @end

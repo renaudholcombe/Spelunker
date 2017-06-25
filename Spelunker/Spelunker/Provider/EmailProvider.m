@@ -10,4 +10,19 @@
 
 @implementation EmailProvider
 
++(id) sharedProvider
+{
+    static EmailProvider *emailProvider;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        emailProvider = [[EmailProvider alloc] init];
+    });
+    return emailProvider;
+}
+
+-(void)sendTestEmail:(Settings *)settings
+{
+
+}
+
 @end

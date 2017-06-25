@@ -141,7 +141,12 @@
 	NSMutableDictionary *query = [self query];
 	[query setObject:@YES forKey:(__bridge id)kSecReturnData];
 	[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
-	status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+
+    @try{
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+    } @catch (NSException *exception){
+
+    }
 
 	if (status != errSecSuccess) {
 		if (error) {
@@ -252,7 +257,9 @@
 	static NSBundle *resourcesBundle = nil;
 	dispatch_once(&onceToken, ^{
 		NSURL *url = [[NSBundle bundleForClass:[SAMKeychainQuery class]] URLForResource:@"SAMKeychain" withExtension:@"bundle"];
-		resourcesBundle = [NSBundle bundleWithURL:url];
+        if(url)
+            resourcesBundle = [NSBundle bundleWithURL:url];
+
 	});
 	
 	NSString *message = nil;

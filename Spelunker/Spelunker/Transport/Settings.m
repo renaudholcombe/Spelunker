@@ -12,7 +12,7 @@
 
 @synthesize splunkServer, splunkPassword, splunkUsername, splunkPortOverride;
 
-@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpEmailAddress;
+@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpEmailAddress, smtpPortOverride;
 
 -(id) init
 {
@@ -20,11 +20,14 @@
     splunkServer = @"";
     splunkUsername = @"";
     splunkPassword = @"";
+    splunkPortOverride = 8000;
 
     smtpPassword = @"";
     smtpUsername = @"";
     smtpServer = @"";
     smtpEmailAddress = @"";
+    smtpPortOverride = 587;
+    smtpUseSSL = true;
 
     return self;
 }

@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Settings.h"
 
 @interface EmailProvider : NSObject
+
++(id) sharedProvider;
+
+-(void) sendTestEmail: (Settings *)settings;
 
 @end

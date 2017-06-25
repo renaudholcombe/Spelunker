@@ -27,6 +27,7 @@ NSString * const EMAIL_USESSLKEY = @"EmailUseSSL";
 NSString * const EMAIL_USERNAMEKEY = @"EmailUsername";
 NSString * const EMAIL_PASSWORDKEY = @"EmailPassword";
 NSString * const EMAIL_SERVICENAME = @"Spelunker_SMTP";
+NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
 
 + (id)sharedProvider
@@ -91,12 +92,13 @@ NSString * const EMAIL_SERVICENAME = @"Spelunker_SMTP";
     settings.smtpEmailAddress = [userDefaults objectForKey:EMAIL_ADDRESSKEY];
     settings.smtpUseSSL = [[userDefaults objectForKey:EMAIL_USESSLKEY] boolValue];
     settings.smtpUsername = [userDefaults objectForKey:EMAIL_USERNAMEKEY];
+    settings.smtpPortOverride = [[userDefaults objectForKey:EMAIL_PORTOVERRIDEKEY] integerValue];
 
     //keychain stuff
     NSError *error = nil;
-    settings.splunkPassword = [self getPasswordfor:SPLUNK_SERVICENAME withAccount:settings.splunkUsername withError:&error];
+    settings.splunkPassword = [self getPasswordfor:@"Spelunker" withAccount:[NSString stringWithFormat:@"Splunk_%@", settings.splunkUsername] withError:&error];
 
-    settings.smtpPassword = [self getPasswordfor:EMAIL_SERVICENAME withAccount:settings.smtpUsername withError:&error];
+    settings.smtpPassword = [self getPasswordfor:@"Spelunker" withAccount:[NSString stringWithFormat:@"SMTP_%@", settings.smtpUsername] withError:&error];
 
     if (error != nil)
     {
@@ -120,13 +122,22 @@ NSString * const EMAIL_SERVICENAME = @"Spelunker_SMTP";
     [settingDict setObject:settings.smtpEmailAddress forKey:EMAIL_ADDRESSKEY];
     [settingDict setObject:settings.smtpUsername forKey:EMAIL_USERNAMEKEY];
     [settingDict setObject:[[NSNumber alloc] initWithBool:settings.smtpUseSSL] forKey:EMAIL_USESSLKEY];
+    [settingDict setObject:[[NSNumber alloc] initWithInteger:settings.smtpPortOverride] forKey:EMAIL_PORTOVERRIDEKEY];
 
     [userDefaults setValuesForKeysWithDictionary:settingDict];
 
     NSError *error = nil;
 
-    [self setPassword:settings.splunkPassword For:SPLUNK_SERVICENAME withAccount:settings.splunkUsername withError:&error];
-    [self setPassword:settings.smtpPassword For:EMAIL_SERVICENAME withAccount:settings.smtpUsername withError:&error];
+    [self setPassword:settings.splunkPassword For:@"Spelunker" withAccount:[NSString stringWithFormat:@"Splunk_%@", settings.splunkUsername] withError:&error];
+
+    if(error != nil)
+    {
+        [ErrorHandler PostError:[[ErrorMessage alloc] initWithMessage:@"Error saving passwords!" withError:error]];
+        return;
+    }
+
+
+    [self setPassword:settings.smtpPassword For:@"Spelunker" withAccount:[NSString stringWithFormat:@"SMTP_%@", settings.smtpUsername] withError:&error];
 
     if(error != nil)
     {
@@ -139,16 +150,21 @@ NSString * const EMAIL_SERVICENAME = @"Spelunker_SMTP";
 {
     NSString *password = @"";
 
-    if(account == nil || [account isEqualToString:@""])
+
+    if(account == nil)
         return @"";
 
-    @try {
+    NSArray *accountArray = [account componentsSeparatedByString:@"_"];
+    if(accountArray.count != 2 || [accountArray[1] isEqualToString:@""])
+        return @"";
+
+/*    NSArray *accounts = [SAMKeychain accountsForService:service error:error];
+    if(accounts == nil)
+        return @"";
+*/
+
+
     password = [SAMKeychain passwordForService:service account:account error:error];
-    }
-    @catch (NSException *exception)
-    {
-        NSLog(@"%@", exception);
-    }
 
     return (password == nil) ? @"": password;
 }
@@ -165,6 +181,9 @@ NSString * const EMAIL_SERVICENAME = @"Spelunker_SMTP";
     {
         NSLog(@"%@", exception);
     }
+
+   // if(error != nil)
+   //     NSLog(@"%@", error);
 
     return;
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E222A251EEDE9C100B9389D /* AlertTableView.m */; };
 		3E25B0E01EFF382100618F44 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; };
+		3E25B0E11F0001CD00618F44 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; };
+		3E25B0E21F0001CD00618F44 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E42F1EEDB706006C5751 /* AppDelegate.m */; };
 		3E51E4331EEDB706006C5751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4321EEDB706006C5751 /* main.m */; };
 		3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4371EEDB706006C5751 /* Assets.xcassets */; };
@@ -37,6 +39,20 @@
 		3EF1C0BA1EFDE51600E91121 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0B71EFDE51600E91121 /* JSONKeyMapper.m */; };
 		3EF1C0BB1EFDE51600E91121 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1C0B91EFDE51600E91121 /* JSONValueTransformer.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E25B0E31F0001CD00618F44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3E25B0E21F0001CD00618F44 /* MailCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E222A241EEDE9C100B9389D /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
@@ -104,6 +120,7 @@
 			files = (
 				3E25B0E01EFF382100618F44 /* MailCore.framework in Frameworks */,
 				3EF1C0761EFDE14000E91121 /* Security.framework in Frameworks */,
+				3E25B0E11F0001CD00618F44 /* MailCore.framework in Frameworks */,
 				3EF1C0741EFDE13200E91121 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +336,7 @@
 				3E51E4271EEDB706006C5751 /* Sources */,
 				3E51E4281EEDB706006C5751 /* Frameworks */,
 				3E51E4291EEDB706006C5751 /* Resources */,
+				3E25B0E31F0001CD00618F44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

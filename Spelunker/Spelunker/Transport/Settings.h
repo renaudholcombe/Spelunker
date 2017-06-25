@@ -19,6 +19,7 @@
 //smtp settings
 @property (nonatomic, retain, setter=setSmtpServer:) NSString *smtpServer;
 @property (nonatomic) BOOL smtpUseSSL;
+@property (nonatomic) NSInteger smtpPortOverride;
 @property (nonatomic, retain, setter=setSmtpEmailAddress:) NSString *smtpEmailAddress;
 @property (nonatomic, retain, setter=setSmtpUsername:) NSString *smtpUsername;
 @property (nonatomic, retain, setter=setSmtpPassword:) NSString *smtpPassword;

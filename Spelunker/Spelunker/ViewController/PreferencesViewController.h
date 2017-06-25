@@ -24,9 +24,12 @@
 @property (weak) IBOutlet NSTextField *emailUsername;
 @property (weak) IBOutlet NSSecureTextField *emailPassword;
 @property (weak) IBOutlet NSTextField *emailAddress;
+@property (weak) IBOutlet NSTextField *emailPortOverride;
 
 
 - (IBAction)cancelAction:(id)sender;
 - (IBAction)saveAction:(id)sender;
+- (IBAction)testEmail:(id)sender;
+- (IBAction)testSplunk:(id)sender;
 
 @end
