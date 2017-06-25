@@ -25,6 +25,7 @@
 @property (weak) IBOutlet NSSecureTextField *emailPassword;
 @property (weak) IBOutlet NSTextField *emailAddress;
 @property (weak) IBOutlet NSTextField *emailPortOverride;
+@property (weak) IBOutlet NSTextField *emailFromAddress;
 
 
 - (IBAction)cancelAction:(id)sender;

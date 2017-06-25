@@ -23,5 +23,6 @@
 @property (nonatomic, retain, setter=setSmtpEmailAddress:) NSString *smtpEmailAddress;
 @property (nonatomic, retain, setter=setSmtpUsername:) NSString *smtpUsername;
 @property (nonatomic, retain, setter=setSmtpPassword:) NSString *smtpPassword;
+@property (nonatomic, retain, setter=setSmtpFromAddress:) NSString *smtpFromAddress;
 
 @end

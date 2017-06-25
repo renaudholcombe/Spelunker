@@ -24,7 +24,7 @@
 		3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* DataProvider.m */; };
 		3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */; };
 		3E66264D1EFDD6E700508793 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E66264C1EFDD6E700508793 /* Settings.m */; };
-		3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E863EF51EEF45EE0044F01C /* ErrorHandler.m */; };
+		3E863EF61EEF45EE0044F01C /* AlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E863EF51EEF45EE0044F01C /* AlertHandler.m */; };
 		3EED2A711EFDF829000AE5AE /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EED2A6F1EFDF829000AE5AE /* PreferencesViewController.m */; };
 		3EF1C0741EFDE13200E91121 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */; };
 		3EF1C0761EFDE14000E91121 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF1C0751EFDE14000E91121 /* Security.framework */; };
@@ -84,8 +84,8 @@
 		3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JSONValueTransformer+NSUUID.m"; path = "Utility/JSONValueTransformer+NSUUID.m"; sourceTree = "<group>"; };
 		3E66264B1EFDD6E700508793 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Transport/Settings.h; sourceTree = "<group>"; };
 		3E66264C1EFDD6E700508793 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Transport/Settings.m; sourceTree = "<group>"; };
-		3E863EF41EEF45EE0044F01C /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = Utility/ErrorHandler.h; sourceTree = "<group>"; };
-		3E863EF51EEF45EE0044F01C /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = Utility/ErrorHandler.m; sourceTree = "<group>"; };
+		3E863EF41EEF45EE0044F01C /* AlertHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertHandler.h; path = Utility/AlertHandler.h; sourceTree = "<group>"; };
+		3E863EF51EEF45EE0044F01C /* AlertHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertHandler.m; path = Utility/AlertHandler.m; sourceTree = "<group>"; };
 		3EED2A6F1EFDF829000AE5AE /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = ViewController/PreferencesViewController.m; sourceTree = "<group>"; };
 		3EED2A701EFDF829000AE5AE /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = ViewController/PreferencesViewController.h; sourceTree = "<group>"; };
 		3EF1C0731EFDE13200E91121 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -240,8 +240,8 @@
 		3E863EF31EEF45780044F01C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3E863EF41EEF45EE0044F01C /* ErrorHandler.h */,
-				3E863EF51EEF45EE0044F01C /* ErrorHandler.m */,
+				3E863EF41EEF45EE0044F01C /* AlertHandler.h */,
+				3E863EF51EEF45EE0044F01C /* AlertHandler.m */,
 				3E6626451EFDD23200508793 /* JSONValueTransformer+NSUUID.h */,
 				3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */,
 			);
@@ -417,7 +417,7 @@
 				3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */,
 				3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */,
 				3EF1C0B51EFDE50800E91121 /* JSONModel+networking.m in Sources */,
-				3E863EF61EEF45EE0044F01C /* ErrorHandler.m in Sources */,
+				3E863EF61EEF45EE0044F01C /* AlertHandler.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
 				3EED2A711EFDF829000AE5AE /* PreferencesViewController.m in Sources */,
 				3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */,

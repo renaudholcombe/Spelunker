@@ -8,7 +8,7 @@
 
 #import "DataProvider.h"
 #import "Alert.h"
-#import "ErrorHandler.h"
+#import "AlertHandler.h"
 #import "SAMKeychain.h"
 
 @implementation DataProvider
@@ -23,6 +23,7 @@ NSString * const SPLUNK_SERVICENAME = @"Spelunker_Splunk";
 
 NSString * const EMAIL_SERVERKEY = @"EmailServer";
 NSString * const EMAIL_ADDRESSKEY = @"EmailAddress";
+NSString * const EMAIL_FROMADDRESSKEY = @"EmailFromAddress";
 NSString * const EMAIL_USESSLKEY = @"EmailUseSSL";
 NSString * const EMAIL_USERNAMEKEY = @"EmailUsername";
 NSString * const EMAIL_PASSWORDKEY = @"EmailPassword";
@@ -70,7 +71,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
     if(error != nil)
     {
-        [ErrorHandler PostError:[[ErrorMessage alloc] initWithMessage:@"Error retrieving alerts." withError:error]];
+        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error retrieving alerts." withError:error]];
 
         return [[NSArray alloc] init];
     }
@@ -90,6 +91,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
     settings.smtpServer = [userDefaults objectForKey:EMAIL_SERVERKEY];
     settings.smtpEmailAddress = [userDefaults objectForKey:EMAIL_ADDRESSKEY];
+    settings.smtpFromAddress = [userDefaults objectForKey:EMAIL_FROMADDRESSKEY];
     settings.smtpUseSSL = [[userDefaults objectForKey:EMAIL_USESSLKEY] boolValue];
     settings.smtpUsername = [userDefaults objectForKey:EMAIL_USERNAMEKEY];
     settings.smtpPortOverride = [[userDefaults objectForKey:EMAIL_PORTOVERRIDEKEY] integerValue];
@@ -104,7 +106,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
     {
         settings.splunkPassword = @"";
         settings.smtpPassword = @"";
-        [ErrorHandler PostError:[[ErrorMessage alloc] initWithMessage:@"Error loading passwords!" withError:error]];
+        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error loading passwords!" withError:error]];
     }
 
     return settings;
@@ -120,6 +122,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
     [settingDict setObject:settings.smtpServer forKey:EMAIL_SERVERKEY];
     [settingDict setObject:settings.smtpEmailAddress forKey:EMAIL_ADDRESSKEY];
+    [settingDict setObject:settings.smtpFromAddress forKey:EMAIL_FROMADDRESSKEY];
     [settingDict setObject:settings.smtpUsername forKey:EMAIL_USERNAMEKEY];
     [settingDict setObject:[[NSNumber alloc] initWithBool:settings.smtpUseSSL] forKey:EMAIL_USESSLKEY];
     [settingDict setObject:[[NSNumber alloc] initWithInteger:settings.smtpPortOverride] forKey:EMAIL_PORTOVERRIDEKEY];
@@ -132,7 +135,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
     if(error != nil)
     {
-        [ErrorHandler PostError:[[ErrorMessage alloc] initWithMessage:@"Error saving passwords!" withError:error]];
+        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error saving passwords!" withError:error]];
         return;
     }
 
@@ -141,7 +144,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
     if(error != nil)
     {
-        [ErrorHandler PostError:[[ErrorMessage alloc] initWithMessage:@"Error saving passwords!" withError:error]];
+        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error saving passwords!" withError:error]];
     }
 
 }

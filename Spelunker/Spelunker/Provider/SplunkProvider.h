@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Settings.h"
 
-@interface SplunkProvider : NSObject
+@interface SplunkProvider : NSObject {
+    NSURLSessionConfiguration *sessionConfiguration;
+    NSURLSession *session;
+}
 
 +(id) sharedProvider;
 
-
+-(void) testConnection: (Settings *)settings;
 
 @end

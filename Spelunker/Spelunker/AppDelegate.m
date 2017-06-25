@@ -21,13 +21,13 @@
     // Insert code here to initialize your application
     logicManager = [LogicManager sharedManager];
     [logicManager getAlertList];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Settings updated" object: [logicManager loadSettings]];
     }
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
 
 - (IBAction)showPreferences:(id)sender {
 

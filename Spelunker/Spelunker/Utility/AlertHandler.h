@@ -1,5 +1,5 @@
 //
-//  ErrorHandler.h
+//  AlertHandler.h
 //  Spelunker
 //
 //  Created by Renaud Holcombe on 6/12/17.
@@ -17,9 +17,10 @@
 
 @end
 
-@interface ErrorHandler : NSObject
+@interface AlertHandler : NSObject
 
-+(void)PostError: (ErrorMessage *)errorMessage;
++(void)postError: (ErrorMessage *)errorMessage;
++(void)showAlert: (NSString *)message;
 
 @end
 

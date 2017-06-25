@@ -27,6 +27,8 @@
     self = [super init];
 
     dataProvider = [DataProvider sharedProvider];
+    emailProvider = [EmailProvider sharedProvider];
+    splunkProvider = [SplunkProvider sharedProvider];
 
     //initialize master array
     //timer initialization logic will need to go here
@@ -63,6 +65,18 @@
 -(void) saveSettings:(Settings *)settings
 {
     [dataProvider saveSettings:settings];
+}
+
+#pragma mark email methods
+-(void) testEmail:(Settings *)settings
+{
+    [emailProvider sendTestEmail:settings];
+}
+
+#pragma mark splunk methods
+-(void) testSplunkConnection:(Settings *)settings
+{
+    [splunkProvider testConnection:settings];
 }
 
 #pragma mark internal methods

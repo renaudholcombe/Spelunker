@@ -12,7 +12,7 @@
 
 @synthesize splunkServer, splunkPassword, splunkUsername, splunkPortOverride;
 
-@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpEmailAddress, smtpPortOverride;
+@synthesize smtpServer, smtpUseSSL, smtpPassword, smtpUsername, smtpEmailAddress, smtpPortOverride, smtpFromAddress;
 
 -(id) init
 {
@@ -26,6 +26,7 @@
     smtpUsername = @"";
     smtpServer = @"";
     smtpEmailAddress = @"";
+    smtpFromAddress = @"spelunker@example.com";
     smtpPortOverride = 587;
     smtpUseSSL = true;
 
@@ -62,6 +63,12 @@
 {
     if(emailAddress != nil)
         smtpEmailAddress = emailAddress;
+}
+
+-(void)setSmtpFromAddress:(NSString *)fromAddress
+{
+    if(fromAddress != nil && ![fromAddress isEqualToString:@""])
+        smtpFromAddress = fromAddress;
 }
 
 @end
