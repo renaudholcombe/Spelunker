@@ -16,6 +16,7 @@
 @property NSMutableArray *alertList;
 
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)showLogViewer:(id)sender;
 
 @end
 

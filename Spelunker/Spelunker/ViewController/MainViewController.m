@@ -16,7 +16,7 @@
 
 @implementation MainViewController
 
-@synthesize alertNameTextField, scheduledRadio, pollingRadio, scheduledDatePicker, tableScrollView, addAlertButton, deleteAlertButton, saveAlertButton, alertSearchTextField, queryValidLabel, testAlertButton;
+@synthesize alertNameTextField, scheduledRadio, pollingRadio, scheduledDatePicker, tableScrollView, addAlertButton, deleteAlertButton, saveAlertButton, alertSearchTextField, testAlertButton, scheduledInterval;
 
 @synthesize alertTable;
 
@@ -49,10 +49,7 @@
 
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-//    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
     Alert *alert = [alertList objectAtIndex:row];
-    //cellView.textField.stringValue = alert.alertName;
-//    [cellView.textField setStringValue:alert.alertName];
     return alert.alertName;
 
 }
@@ -104,16 +101,22 @@
 -(void)updateAlertControls: (Alert *)alert
 {
     alertNameTextField.stringValue = alert.alertName;
-    queryValidLabel.stringValue = @"";
 
     if(alert.alertType == Polling){
         pollingRadio.state = 1;
         scheduledDatePicker.hidden = YES;
+        scheduledInterval.hidden = YES;
     }
     else {
         scheduledRadio.state = 1;
         scheduledDatePicker.hidden = NO;
         scheduledDatePicker.dateValue = (alert.scheduleTime == nil)? [NSDate date]: alert.scheduleTime;
+
+        scheduledInterval.hidden = NO;
+        if(alert.schedulerTimeInterval == 24 || alert.schedulerTimeInterval == 0)
+            scheduledInterval.stringValue = @"";
+        else
+            scheduledInterval.integerValue = alert.schedulerTimeInterval;
 
     }
 
@@ -138,6 +141,7 @@
     pollingRadio.state = value;
     pollingRadio.enabled = value;
     scheduledDatePicker.hidden = !value;
+    scheduledInterval.hidden = !value;
     alertSearchTextField.stringValue = @"";
     alertSearchTextField.enabled = value;
     testAlertButton.enabled = value;
@@ -155,6 +159,7 @@
     currentAlert.alertName = alertNameTextField.stringValue;
     currentAlert.alertType = (pollingRadio.state)? Polling : Scheduled;
     currentAlert.scheduleTime = scheduledDatePicker.dateValue;
+    currentAlert.schedulerTimeInterval = scheduledInterval.integerValue;
     currentAlert.searchString = alertSearchTextField.stringValue;
     [logicManager saveAlert:currentAlert];
 
@@ -191,11 +196,19 @@
     if([[sender identifier]  isEqual: @"AlertTypePolling"]){
         pollingRadio.state = 1;
         scheduledDatePicker.hidden = YES;
+        scheduledInterval.hidden = YES;
     }
     else if([[sender identifier]  isEqual: @"AlertTypeScheduled"]){
         scheduledRadio.state = 1;
         scheduledDatePicker.hidden = NO;
         scheduledDatePicker.dateValue = (currentAlert.scheduleTime == nil)? [NSDate date]: currentAlert.scheduleTime;
+
+        scheduledInterval.hidden = NO;
+        if(currentAlert.schedulerTimeInterval == 24 || currentAlert.schedulerTimeInterval == 0)
+            scheduledInterval.stringValue = @"";
+        else
+            scheduledInterval.integerValue = currentAlert.schedulerTimeInterval;
+
     }
 
     [self alertChanged];

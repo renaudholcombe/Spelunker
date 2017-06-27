@@ -10,7 +10,7 @@
 
 @implementation Alert
 
-@synthesize alertId, alertName, alertType, scheduleTime, searchString, isValid, timer;
+@synthesize alertId, alertName, alertType, scheduleTime, searchString, isValid, timer, schedulerTimeInterval;
 
 -(id) init
 {
@@ -28,6 +28,16 @@
     alertType = Polling;
     searchString = @"* earliest=-1h";
     isValid = false;
+}
+
++(BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    NSArray *optionProps = @[ @"" ]; //used to add fields during development
+
+    if([optionProps containsObject:propertyName])
+        return YES;
+
+    return NO;
 }
 
 @end

@@ -20,7 +20,7 @@
     splunkServer = @"";
     splunkUsername = @"";
     splunkPassword = @"";
-    splunkPortOverride = 8000;
+    splunkPortOverride = 8089;
 
     smtpPassword = @"";
     smtpUsername = @"";

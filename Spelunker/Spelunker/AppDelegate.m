@@ -34,4 +34,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenPreferences" object:nil];
 }
 
+- (IBAction)showLogViewer:(id)sender {
+}
+
 @end

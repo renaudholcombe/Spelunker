@@ -26,7 +26,7 @@
     //set controls
     splunkAddressTextField.stringValue = settings.splunkServer;
 
-    if(settings.splunkPortOverride != 8000)
+    if(settings.splunkPortOverride != 8089)
         splunkPortOverride.integerValue = settings.splunkPortOverride;
     else
         splunkPortOverride.stringValue = @"";
@@ -72,7 +72,7 @@
     Settings *settings = [[Settings alloc] init];
 
     settings.splunkServer = splunkAddressTextField.stringValue;
-    settings.splunkPortOverride = (splunkPortOverride.integerValue == 0) ? 8000: splunkPortOverride.integerValue;
+    settings.splunkPortOverride = (splunkPortOverride.integerValue == 0) ? 8089: splunkPortOverride.integerValue;
     settings.splunkPassword = splunkPassword.stringValue;
     settings.splunkUsername = splunkUsername.stringValue;
 

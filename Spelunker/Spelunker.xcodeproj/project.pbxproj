@@ -11,6 +11,7 @@
 		3E25B0E01EFF382100618F44 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; };
 		3E25B0E11F0001CD00618F44 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; };
 		3E25B0E21F0001CD00618F44 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E25B0E91F01DE9200618F44 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0E81F01DE9200618F44 /* LogViewController.m */; };
 		3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E42F1EEDB706006C5751 /* AppDelegate.m */; };
 		3E51E4331EEDB706006C5751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4321EEDB706006C5751 /* main.m */; };
 		3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4371EEDB706006C5751 /* Assets.xcassets */; };
@@ -58,6 +59,8 @@
 		3E222A241EEDE9C100B9389D /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertTableView.h; path = ViewController/AlertTableView.h; sourceTree = "<group>"; };
 		3E222A251EEDE9C100B9389D /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertTableView.m; path = ViewController/AlertTableView.m; sourceTree = "<group>"; };
 		3E25B0DF1EFF382100618F44 /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = Spelunker/ThirdParty/MailCore/MailCore.framework; sourceTree = "<group>"; };
+		3E25B0E71F01DE9200618F44 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogViewController.h; path = ViewController/LogViewController.h; sourceTree = "<group>"; };
+		3E25B0E81F01DE9200618F44 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogViewController.m; path = ViewController/LogViewController.m; sourceTree = "<group>"; };
 		3E51E42B1EEDB706006C5751 /* Spelunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spelunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E51E42E1EEDB706006C5751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E51E42F1EEDB706006C5751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				3E222A251EEDE9C100B9389D /* AlertTableView.m */,
 				3E51E4431EEDB7C6006C5751 /* MainViewController.h */,
 				3E51E4441EEDB7C6006C5751 /* MainViewController.m */,
+				3E25B0E71F01DE9200618F44 /* LogViewController.h */,
+				3E25B0E81F01DE9200618F44 /* LogViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				3EF1C0B51EFDE50800E91121 /* JSONModel+networking.m in Sources */,
 				3E863EF61EEF45EE0044F01C /* AlertHandler.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
+				3E25B0E91F01DE9200618F44 /* LogViewController.m in Sources */,
 				3EED2A711EFDF829000AE5AE /* PreferencesViewController.m in Sources */,
 				3E51E4451EEDB7C6006C5751 /* MainViewController.m in Sources */,
 				3EF1C0AA1EFDE4FC00E91121 /* JSONModel.m in Sources */,

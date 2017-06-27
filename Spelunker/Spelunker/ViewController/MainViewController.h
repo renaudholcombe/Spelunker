@@ -28,8 +28,8 @@
 @property (weak) IBOutlet NSButton *deleteAlertButton;
 @property (weak) IBOutlet NSButton *saveAlertButton;
 @property (weak) IBOutlet NSTextField *alertSearchTextField;
-@property (weak) IBOutlet NSTextField *queryValidLabel;
 @property (weak) IBOutlet NSButton *testAlertButton;
+@property (weak) IBOutlet NSTextField *scheduledInterval;
 
 @property (nonatomic, strong) IBOutlet AlertTableView *alertTable;
 

@@ -38,6 +38,8 @@
         [alertDictionary setObject:alert forKey:alert.alertId];
     }
 
+    [self initTimers];
+
     return self;
 }
 
@@ -84,6 +86,11 @@
 -(void) saveAlertList:(NSArray *)alertList
 {
     [dataProvider saveAlerts:alertList];
+}
+
+-(void) initTimers
+{
+
 }
 
 @end

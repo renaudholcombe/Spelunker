@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString *alertName;
 @property (nonatomic) AlertType alertType;
 @property (nonatomic, retain) NSDate *scheduleTime;
+@property (nonatomic) NSInteger schedulerTimeInterval; //hours
 @property (nonatomic, retain) NSString *searchString;
 @property (nonatomic) BOOL isValid;
 @property (nonatomic, retain) NSTimer <Ignore> *timer;
