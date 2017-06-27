@@ -9,10 +9,6 @@
 #import "AppDelegate.h"
 #import "PreferencesViewController.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
 @synthesize alertList;
@@ -35,6 +31,11 @@
 }
 
 - (IBAction)showLogViewer:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenLogViewer" object:nil];
+
+    NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
+    logViewerWindow = [storyBoard instantiateControllerWithIdentifier:@"LogViewerWindow"];
+    [logViewerWindow showWindow:self];
 }
 
 @end

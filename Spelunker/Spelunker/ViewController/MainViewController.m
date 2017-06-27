@@ -45,6 +45,7 @@
     [self presentViewControllerAsSheet:preferences];
 }
 
+
 #pragma mark tableview delegate methods
 
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row

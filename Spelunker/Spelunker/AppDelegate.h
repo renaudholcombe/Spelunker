@@ -11,6 +11,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     LogicManager *logicManager;
+    NSWindowController *logViewerWindow;
 }
 
 @property NSMutableArray *alertList;

@@ -326,8 +326,11 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3PG-Cu-lgU">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3PG-Cu-lgU">
                                 <rect key="frame" x="360" y="13" width="122" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="pUn-gb-hUn"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" title="Clear log" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZSl-gw-y6Y">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -338,12 +341,12 @@ DQ
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3PG-Cu-lgU" secondAttribute="bottom" constant="20" symbolic="YES" id="YdH-h4-TcT"/>
+                            <constraint firstAttribute="bottom" secondItem="3PG-Cu-lgU" secondAttribute="bottom" constant="20" symbolic="YES" id="01t-f6-G3b"/>
+                            <constraint firstItem="3PG-Cu-lgU" firstAttribute="top" secondItem="Lr8-SW-Cjr" secondAttribute="bottom" constant="20" symbolic="YES" id="08e-xa-JKB"/>
+                            <constraint firstItem="3PG-Cu-lgU" firstAttribute="centerX" secondItem="Lr8-SW-Cjr" secondAttribute="centerX" id="cXA-1o-3Fv"/>
                             <constraint firstAttribute="trailing" secondItem="Lr8-SW-Cjr" secondAttribute="trailing" constant="20" symbolic="YES" id="ewf-3v-l51"/>
                             <constraint firstItem="Lr8-SW-Cjr" firstAttribute="leading" secondItem="ZJ5-Kf-sjA" secondAttribute="leading" constant="20" symbolic="YES" id="gZd-tt-hD1"/>
-                            <constraint firstItem="3PG-Cu-lgU" firstAttribute="top" secondItem="Lr8-SW-Cjr" secondAttribute="bottom" constant="20" symbolic="YES" id="qQ2-qs-j1z"/>
                             <constraint firstItem="Lr8-SW-Cjr" firstAttribute="top" secondItem="ZJ5-Kf-sjA" secondAttribute="top" constant="20" symbolic="YES" id="ulr-MF-Qb4"/>
-                            <constraint firstItem="Lr8-SW-Cjr" firstAttribute="centerX" secondItem="3PG-Cu-lgU" secondAttribute="centerX" id="zmn-ef-Tm0"/>
                         </constraints>
                     </view>
                     <connections>
@@ -353,6 +356,24 @@ DQ
                 <customObject id="wdA-Xq-Qlh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869" y="560"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="ZRR-IO-br4">
+            <objects>
+                <windowController storyboardIdentifier="LogViewerWindow" showSeguePresentationStyle="single" id="URD-B2-Pvp" sceneMemberID="viewController">
+                    <window key="window" title="Spelunker Log Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="oqc-r6-uX5">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                    </window>
+                    <connections>
+                        <segue destination="uAc-Ak-lGY" kind="relationship" relationship="window.shadowedContentViewController" id="ZLI-gX-397"/>
+                    </connections>
+                </windowController>
+                <customObject id="R3Q-xq-szl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1571" y="360"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -645,7 +666,7 @@ DQ
                                         <menuItem isSeparatorItem="YES" id="9Ob-0i-TjN"/>
                                         <menuItem title="Log viewer" keyEquivalent="l" id="DTe-VI-LUO">
                                             <connections>
-                                                <action selector="showLogViewer:" target="Voe-Tx-rLC" id="QsK-gt-RPx"/>
+                                                <segue destination="URD-B2-Pvp" kind="show" id="q4v-D5-AIt"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="dCU-9T-XSU"/>
@@ -685,7 +706,7 @@ DQ
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Spelunker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
