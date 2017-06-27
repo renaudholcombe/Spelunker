@@ -78,7 +78,7 @@
         }
 
         if(httpResponse.statusCode == 200)
-            [AlertHandler showAlert:@"Splunk connect succeeded!"];
+            [AlertHandler showAlert:@"Splunk connection succeeded!"];
 
     }];
 

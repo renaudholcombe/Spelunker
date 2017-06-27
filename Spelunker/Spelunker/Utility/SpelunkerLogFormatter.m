@@ -13,8 +13,7 @@
 -(NSString *) formatLogMessage:(DDLogMessage *)logMessage
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateFormatterShortStyle;
-    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    [dateFormatter setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss"];
 
     NSString *logTime = [dateFormatter stringFromDate:[NSDate date]];
 
@@ -27,7 +26,7 @@
         default : logLevel=@"VERBOSE"; break;
     }
 
-    return [NSString stringWithFormat:@"%@ : %@ : %@ : %@", logTime, logLevel, logMessage.fileName, logMessage.message];
+    return [NSString stringWithFormat:@"%@ : %@ : %@ : %@\n", logTime, logLevel, logMessage.fileName, logMessage.message];
 }
 
 @end

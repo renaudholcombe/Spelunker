@@ -22,42 +22,60 @@
     return self;
 }
 
--(void) appendTextStorageString:(NSString *) string
+-(void) appendTextStorageString:(DDLogMessage *) message
 {
     NSAssert(textView != nil, @"textView is nil in logger");
 
     dispatch_async(dispatch_get_main_queue(), ^(void){
 
-        [textView.textStorage appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
+        [textView.textStorage appendAttributedString:[self getAttributedString:message]];
+
 
         [textView scrollRangeToVisible:NSMakeRange(textView.textStorage.length, 0)];
     });
 }
 
-#pragma mark Logger methods
-
--(void)logMessage:(DDLogMessage *)logMessage
+-(NSAttributedString *)getAttributedString:(DDLogMessage *)message
 {
-    NSString *logMsg;
-//    DDAbstractLogger<DDLogger> *logFormatter = self.logFormatter;
-
-    logMsg = [internalFormatter formatLogMessage:logMessage];
-
-    if(textView)
-    {
-        [self appendTextStorageString:[NSString stringWithFormat:@"\n%@", logMsg]];
-    } else
-    {
-        [logMsgCache addObject:logMsg];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[internalFormatter formatLogMessage:message]];
+    switch(message.flag) {
+        case DDLogFlagError:
+            [string addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0, string.length)];
+            break;
+        case DDLogFlagWarning:
+            [string addAttribute:NSForegroundColorAttributeName value:[NSColor orangeColor] range:NSMakeRange(0, string.length)];
+            break;
+        default:
+            break;
     }
+
+    return string;
 }
 
 -(void) setTextView:(NSTextView *)newTextView
 {
     textView = newTextView;
-    NSString *fullLog = [logMsgCache componentsJoinedByString:@"\n"];
+    NSArray *flushedCache = [[NSArray alloc] initWithArray:logMsgCache];
     [logMsgCache removeAllObjects];
-    [self appendTextStorageString:fullLog];
+
+    for (DDLogMessage *message in flushedCache) {
+        [self appendTextStorageString:message];
+    }
 }
+
+
+#pragma mark Logger methods
+
+-(void)logMessage:(DDLogMessage *)logMessage
+{
+    if(textView)
+    {
+        [self appendTextStorageString:logMessage];
+    } else
+    {
+        [logMsgCache addObject:logMessage];
+    }
+}
+
 
 @end
