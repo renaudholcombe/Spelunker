@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LogicManager.h"
+#import "UITextViewLogger.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     LogicManager *logicManager;
@@ -15,9 +16,11 @@
 }
 
 @property NSMutableArray *alertList;
+@property UITextViewLogger *textViewLogger;
+
+
 
 - (IBAction)showPreferences:(id)sender;
-- (IBAction)showLogViewer:(id)sender;
 
 @end
 

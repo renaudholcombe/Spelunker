@@ -10,7 +10,7 @@
         <!--Preferences View Controller-->
         <scene sceneID="Dah-RU-Aea">
             <objects>
-                <viewController storyboardIdentifier="PreferencesViewController" showSeguePresentationStyle="single" id="jn4-HL-n6G" customClass="PreferencesViewController" sceneMemberID="viewController">
+                <viewController identifier="PreferencesViewController" storyboardIdentifier="PreferencesViewController" showSeguePresentationStyle="single" id="jn4-HL-n6G" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="GxS-wc-8Tr">
                         <rect key="frame" x="0.0" y="0.0" width="662" height="364"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -298,20 +298,12 @@ DQ
                                     <rect key="frame" x="1" y="1" width="785" height="562"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" richText="NO" usesFontPanel="YES" findStyle="panel" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="veP-pw-hqs">
+                                        <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="veP-pw-hqs">
                                             <rect key="frame" x="0.0" y="0.0" width="785" height="562"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="785" height="562"/>
                                             <size key="maxSize" width="785" height="10000000"/>
-                                            <attributedString key="textStorage">
-                                                <fragment content=";lkjl;lkj;lkj">
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system" size="11"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>

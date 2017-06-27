@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "UITextViewLogger.h"
 
-@interface LogViewController : NSViewController
+@interface LogViewController : NSViewController {
+    UITextViewLogger *logger;
+}
 
 @property (unsafe_unretained) IBOutlet NSTextView *logTextView;
 

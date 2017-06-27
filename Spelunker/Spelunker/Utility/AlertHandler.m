@@ -13,6 +13,9 @@
 
 +(void)postError: (ErrorMessage *)errorMessage
 {
+    DDLogError(@"%@",errorMessage.message);
+    DDLogDebug(@"%@",errorMessage.error);
+
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = errorMessage.message;
     alert.informativeText = [NSString stringWithFormat:@"%@", errorMessage.error];
@@ -26,6 +29,8 @@
 
 +(void)showAlert:(NSString *)message
 {
+    DDLogInfo(@"%@", message);
+
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = message;
     [alert addButtonWithTitle:@"Ok"];

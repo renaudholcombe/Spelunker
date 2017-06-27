@@ -15,6 +15,8 @@
 		3E25B0EB1F01E6BC00618F44 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; };
 		3E25B0EC1F01E6C200618F44 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; };
 		3E25B0ED1F01E6C200618F44 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E25B0F11F01F2D200618F44 /* UITextViewLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0F01F01F2D200618F44 /* UITextViewLogger.m */; };
+		3E25B0F51F02041200618F44 /* SpelunkerLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0F41F02041200618F44 /* SpelunkerLogFormatter.m */; };
 		3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E42F1EEDB706006C5751 /* AppDelegate.m */; };
 		3E51E4331EEDB706006C5751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4321EEDB706006C5751 /* main.m */; };
 		3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4371EEDB706006C5751 /* Assets.xcassets */; };
@@ -66,6 +68,11 @@
 		3E25B0E71F01DE9200618F44 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogViewController.h; path = ViewController/LogViewController.h; sourceTree = "<group>"; };
 		3E25B0E81F01DE9200618F44 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogViewController.m; path = ViewController/LogViewController.m; sourceTree = "<group>"; };
 		3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Spelunker/ThirdParty/CocoaLumberjack/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		3E25B0EF1F01F2D200618F44 /* UITextViewLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITextViewLogger.h; path = Utility/UITextViewLogger.h; sourceTree = "<group>"; };
+		3E25B0F01F01F2D200618F44 /* UITextViewLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITextViewLogger.m; path = Utility/UITextViewLogger.m; sourceTree = "<group>"; };
+		3E25B0F21F01FC8B00618F44 /* Spelunker.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spelunker.pch; sourceTree = "<group>"; };
+		3E25B0F31F02041200618F44 /* SpelunkerLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpelunkerLogFormatter.h; path = Utility/SpelunkerLogFormatter.h; sourceTree = "<group>"; };
+		3E25B0F41F02041200618F44 /* SpelunkerLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpelunkerLogFormatter.m; path = Utility/SpelunkerLogFormatter.m; sourceTree = "<group>"; };
 		3E51E42B1EEDB706006C5751 /* Spelunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spelunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E51E42E1EEDB706006C5751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E51E42F1EEDB706006C5751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -138,13 +145,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3E25B0EE1F01E93300618F44 /* WindowController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = WindowController;
-			sourceTree = "<group>";
-		};
 		3E51E4221EEDB706006C5751 = {
 			isa = PBXGroup;
 			children = (
@@ -165,21 +165,21 @@
 		3E51E42D1EEDB706006C5751 /* Spelunker */ = {
 			isa = PBXGroup;
 			children = (
+				3E51E4491EEDC99D006C5751 /* Constants */,
 				3EF1C06F1EFDDE2800E91121 /* ThirdParty */,
-				3E863EF31EEF45780044F01C /* Utility */,
 				3E51E45A1EEDCA85006C5751 /* Operation */,
 				3E51E4531EEDCA3F006C5751 /* Provider */,
 				3E51E44F1EEDCA1B006C5751 /* Manager */,
 				3E51E44B1EEDC9D3006C5751 /* Transport */,
-				3E51E4491EEDC99D006C5751 /* Constants */,
 				3E51E4421EEDB78B006C5751 /* ViewController */,
-				3E25B0EE1F01E93300618F44 /* WindowController */,
+				3E863EF31EEF45780044F01C /* Utility */,
 				3E51E42E1EEDB706006C5751 /* AppDelegate.h */,
 				3E51E42F1EEDB706006C5751 /* AppDelegate.m */,
 				3E51E4371EEDB706006C5751 /* Assets.xcassets */,
 				3E51E4391EEDB707006C5751 /* Main.storyboard */,
 				3E51E43C1EEDB707006C5751 /* Info.plist */,
 				3E51E4311EEDB706006C5751 /* Supporting Files */,
+				3E25B0F21F01FC8B00618F44 /* Spelunker.pch */,
 			);
 			path = Spelunker;
 			sourceTree = "<group>";
@@ -264,6 +264,10 @@
 				3E863EF51EEF45EE0044F01C /* AlertHandler.m */,
 				3E6626451EFDD23200508793 /* JSONValueTransformer+NSUUID.h */,
 				3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */,
+				3E25B0EF1F01F2D200618F44 /* UITextViewLogger.h */,
+				3E25B0F01F01F2D200618F44 /* UITextViewLogger.m */,
+				3E25B0F31F02041200618F44 /* SpelunkerLogFormatter.h */,
+				3E25B0F41F02041200618F44 /* SpelunkerLogFormatter.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -420,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF1C0B41EFDE50800E91121 /* JSONHTTPClient.m in Sources */,
+				3E25B0F11F01F2D200618F44 /* UITextViewLogger.m in Sources */,
 				3EF1C07C1EFDE15D00E91121 /* SAMKeychainQuery.m in Sources */,
 				3EF1C0AC1EFDE4FC00E91121 /* JSONModelError.m in Sources */,
 				3E51E44E1EEDCA15006C5751 /* Alert.m in Sources */,
@@ -439,6 +444,7 @@
 				3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */,
 				3EF1C0B51EFDE50800E91121 /* JSONModel+networking.m in Sources */,
 				3E863EF61EEF45EE0044F01C /* AlertHandler.m in Sources */,
+				3E25B0F51F02041200618F44 /* SpelunkerLogFormatter.m in Sources */,
 				3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */,
 				3E25B0E91F01DE9200618F44 /* LogViewController.m in Sources */,
 				3EED2A711EFDF829000AE5AE /* PreferencesViewController.m in Sources */,
@@ -562,6 +568,8 @@
 					"$(PROJECT_DIR)/Spelunker/ThirdParty/MailCore",
 					"$(PROJECT_DIR)/Spelunker/ThirdParty/CocoaLumberjack",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Spelunker.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = Spelunker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -583,6 +591,8 @@
 					"$(PROJECT_DIR)/Spelunker/ThirdParty/MailCore",
 					"$(PROJECT_DIR)/Spelunker/ThirdParty/CocoaLumberjack",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Spelunker.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = Spelunker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

@@ -45,6 +45,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 {
     self = [super init];
     userDefaults = [NSUserDefaults standardUserDefaults];
+    DDLogInfo(@"Initialized");
     return self;
 }
 
@@ -58,6 +59,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
 
     NSString *jsonString = [list toJSONString];
     [userDefaults setObject:jsonString forKey:ALERTKEY];
+    DDLogInfo(@"Alerts saved");
 }
 
 -(NSArray *) getAlerts
@@ -76,6 +78,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
         return [[NSArray alloc] init];
     }
 
+    DDLogInfo(@"Alerts loaded");
     return alertList.alertList;
 }
 
@@ -108,7 +111,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
         settings.smtpPassword = @"";
         [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error loading passwords!" withError:error]];
     }
-
+    DDLogInfo(@"Settings loaded");
     return settings;
 }
 
@@ -147,6 +150,7 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
         [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error saving passwords!" withError:error]];
     }
 
+    DDLogInfo(@"Settings saved");
 }
 
 -(NSString *) getPasswordfor: (NSString *)service withAccount: (NSString *)account withError:(NSError **) error
@@ -172,23 +176,15 @@ NSString * const EMAIL_PORTOVERRIDEKEY = @"EmailPortOverride";
     return (password == nil) ? @"": password;
 }
 
--(void) setPassword: (NSString *) password For: (NSString *)service withAccount: (NSString *)account withError:(NSError **)error
+//The return value is to avoid a pointless analyzer warning
+-(id) setPassword: (NSString *) password For: (NSString *)service withAccount: (NSString *)account withError:(NSError **)error
 {
     if(account == nil || [account isEqualToString:@""])
-        return;
+        return nil;
 
-    @try {
-        [SAMKeychain setPassword:password forService:service account:account error:error];
-    }
-    @catch (NSException *exception)
-    {
-        NSLog(@"%@", exception);
-    }
+    [SAMKeychain setPassword:password forService:service account:account error:error];
 
-   // if(error != nil)
-   //     NSLog(@"%@", error);
-
-    return;
+    return nil;
 }
 
 @end

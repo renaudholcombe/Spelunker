@@ -28,7 +28,7 @@
 
 //debug only
 /*    [session setConnectionLogger:^(void * connectionID, MCOConnectionLogType type, NSData * data){
-        NSLog(@"data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        DDLogDebug(@"data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     }];
  */
 
@@ -52,11 +52,11 @@
     [sendOperation start:^(NSError *error){
         if(error)
         {
-            NSLog(@"Error sending test email: %@", error);
+            DDLogError(@"Error sending test email: %@", error);
             [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error sending test email" withError:error]];
         } else
         {
-            NSLog(@"Email sent successfully!");
+            DDLogInfo(@"Email sent successfully!");
             [AlertHandler showAlert:@"Test email sent successfully"];
         }
     }];

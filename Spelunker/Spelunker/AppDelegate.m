@@ -7,19 +7,44 @@
 //
 
 #import "AppDelegate.h"
-#import "PreferencesViewController.h"
+#import "SpelunkerLogFormatter.h"
 
 @implementation AppDelegate
 
-@synthesize alertList;
+@synthesize alertList, textViewLogger;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+
+    [self initializeLogging];
+
     logicManager = [LogicManager sharedManager];
     [logicManager getAlertList];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Settings updated" object: [logicManager loadSettings]];
+
     }
 
+
+-(void) initializeLogging
+{
+    textViewLogger = [[UITextViewLogger alloc] initWithLogFormatter:[[SpelunkerLogFormatter alloc] init]];
+
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 60*60*24; //24 hours
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [fileLogger setLogFormatter:[[SpelunkerLogFormatter alloc] init]];
+
+    DDASLLogger *aslLogger = [DDASLLogger sharedInstance];
+    [aslLogger setLogFormatter:[[SpelunkerLogFormatter alloc] init]];
+
+    DDTTYLogger *ttyLogger = [DDTTYLogger sharedInstance];
+    [ttyLogger setLogFormatter:[[SpelunkerLogFormatter alloc] init]];
+
+    [DDLog addLogger:textViewLogger];
+    [DDLog addLogger:fileLogger];
+    [DDLog addLogger:aslLogger];
+    [DDLog addLogger:ttyLogger];
+
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
@@ -30,12 +55,5 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenPreferences" object:nil];
 }
 
-- (IBAction)showLogViewer:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenLogViewer" object:nil];
-
-    NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
-    logViewerWindow = [storyBoard instantiateControllerWithIdentifier:@"LogViewerWindow"];
-    [logViewerWindow showWindow:self];
-}
 
 @end

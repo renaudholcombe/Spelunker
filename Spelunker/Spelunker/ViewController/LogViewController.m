@@ -7,7 +7,7 @@
 //
 
 #import "LogViewController.h"
-
+#import "AppDelegate.h"
 
 @implementation LogViewController
 
@@ -15,15 +15,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [logTextView setString:@""]; //clear out
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appendLog:) name:@"LogMessage" object:nil];
+    logger = ((AppDelegate *) [NSApplication sharedApplication].delegate).textViewLogger;
+    logger.textView = logTextView;
 }
 
--(void)appendLog: (NSNotification *)notification
-{
-    [[logTextView textStorage] appendAttributedString:[[NSAttributedString alloc] initWithString:notification.object]];
-
-}
 
 - (IBAction)clearLogButton:(id)sender {
     [logTextView setString:@""];

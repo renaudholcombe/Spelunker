@@ -62,7 +62,7 @@
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification
 {
-    NSLog(@"selected row = %ld", (long) [notification.object selectedRow]);
+    DDLogDebug(@"selected row = %ld", (long) [notification.object selectedRow]);
     NSInteger selectedRow = [notification.object selectedRow];
     if(selectedRow == -1 || selectedRow > alertList.count)
     {
