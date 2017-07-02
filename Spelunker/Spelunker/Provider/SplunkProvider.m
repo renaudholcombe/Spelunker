@@ -12,6 +12,8 @@
 
 @implementation SplunkProvider
 
+const NSInteger JOBSTATUSTRIES = 10;
+
 #pragma mark initializers
 
 +(id) sharedProvider
@@ -33,6 +35,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshSession:) name:@"Settings updated" object:nil];
 
+    jobCheckQueue = [NSOperationQueue new];
 
     return self;
 }
@@ -114,92 +117,208 @@
             DDLogDebug(@"%@", error);
             return;
 
-        } else {
+        }
 
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            if(httpResponse.statusCode != 201)
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if(httpResponse.statusCode != 201)
+        {
+            NSString *responseMessage;
+            switch(httpResponse.statusCode)
+            {
+                case 401:
+                case 403:
+                    responseMessage = @"Splunk job creation API call returned unauthorized";
+                    if(isTest)
+                        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:responseMessage withError:nil]];
+                    DDLogError(@"%@",responseMessage);
+                    break;
+                case 400:
+                    responseMessage = @"Splunk job creation API returned \"Bad Request\". Confirm your search string";
+
+                    if(isTest)
+                        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:responseMessage withError:nil]];
+
+                    DDLogError(@"%@", responseMessage);
+                    return;
+                    break;
+                default:
+                    responseMessage = [NSString stringWithFormat:@"Splunk job creation API call returned unexpected status code: %ldl", (long)httpResponse.statusCode];
+                    DDLogWarn(@"%@", responseMessage);
+                    break;
+            }
+
+        }
+        if(data == nil)
+        {
+            if(isTest)
+                [AlertHandler showAlert:@"Received empty result from splunk"];
+
+            DDLogWarn(@"Received empty data from splunk");
+            return;
+        }
+        NSString *rawResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        DDLogDebug(@"Splunk job creation result: %@", rawResult);
+
+        error = nil;
+
+        id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+
+        if(error) {
+            DDLogError(@"Error parsing splunk job creation result");
+            DDLogDebug(@"%@", error);
+
+            if(isTest)
+            {
+//                        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error parsing splunk job creation result" withError:error]];
+            }
+        }
+
+        if(![object isKindOfClass:[NSDictionary class]])
+        {
+            DDLogError(@"Splunk job creation result not in expected format");
+            if(isTest)
+            {
+                [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Splunk result not in expected format" withError:nil] ];
+            }
+        }
+
+        if(isTest)
+        {
+            //put back later
+            //[AlertHandler showAlert:@"Splunk query valid"];
+            //return;
+        }
+
+        NSDictionary *result = object;
+        NSDecimalNumber *jobId = [result objectForKey:@"sid"];
+
+        __block SplunkJob *job = [[SplunkJob alloc] initWithAlert:alert withJobId:jobId];
+        DDLogInfo(@"Splunk job created with sId: %@ for alert \"%@\"", job.jobId, alert.alertName);
+
+        //start checking the status
+        NSBlockOperation *statusCheck = [NSBlockOperation blockOperationWithBlock:^{
+            sleep(1); //kludgy, but simpler than the alternative GCD gynastics
+            [self checkSplunkJobStatus:job triesLeft:JOBSTATUSTRIES];
+        }];
+
+        [jobCheckQueue addOperation:statusCheck];
+    }];
+
+    [dataTask resume];
+}
+
+-(void) checkSplunkJobStatus: (SplunkJob *) job triesLeft: (NSInteger) tries
+{
+    if(--tries < 0)
+    {
+        DDLogWarn(@"%@", [NSString stringWithFormat:@"Alert \"%@\" ran out of tries checking job status", job.alert.alertName]);
+        return;
+    }
+
+    DDLogInfo(@"Beginning status check %ld for alert \"%@\"", (long)(JOBSTATUSTRIES - tries), job.alert.alertName);
+
+    NSURL *createUrl = [self createSplunkURL: settings withEndpoint:[NSString stringWithFormat:@"/services/search/jobs/%@/", job.jobId] withOutputType:@"json"];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:createUrl];
+    request.HTTPMethod = @"GET";
+
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if(error)
+        {
+            DDLogError(@"Error checking job status for alert \"%@\"", job.alert.alertName);
+            //not returning for now to get some retry logic in place
+        } else
+        {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if(httpResponse.statusCode != 200)
             {
                 NSString *responseMessage;
                 switch(httpResponse.statusCode)
                 {
                     case 401:
                     case 403:
-                        responseMessage = @"Splunk job creation API call returned unauthorized";
-                        if(isTest)
-                            [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:responseMessage withError:nil]];
+                        responseMessage = @"Splunk job status check API call returned unauthorized";
                         DDLogError(@"%@",responseMessage);
+                        return;
                         break;
                     case 400:
-                        responseMessage = @"Splunk job creation API returned \"Bad Request\". Confirm your search string";
-
-                        if(isTest)
-                            [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:responseMessage withError:nil]];
-
+                        responseMessage = @"Splunk job status check API returned \"Bad Request\"";
                         DDLogError(@"%@", responseMessage);
                         return;
                         break;
                     default:
-                        responseMessage = [NSString stringWithFormat:@"Splunk job creation API call returned unexpected status code: %ldl", (long)httpResponse.statusCode];
+                        responseMessage = [NSString stringWithFormat:@"Splunk job status check API call returned unexpected status code: %ldl", (long)httpResponse.statusCode];
                         DDLogWarn(@"%@", responseMessage);
                         break;
                 }
-
             }
             if(data != nil)
             {
                 NSString *rawResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                DDLogDebug(@"Splunk job creation result: %@", rawResult);
+                NSLog(@"%@", rawResult);
+                DDLogDebug(@"Splunk job status check result: %@", rawResult);
 
                 NSError *error = nil;
 
                 id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 
                 if(error) {
-                    DDLogError(@"Error parsing splunk job creation result");
+                    DDLogError(@"Error parsing splunk job status check result");
                     DDLogDebug(@"%@", error);
-
-                    if(isTest)
-                    {
-//                        [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Error parsing splunk job creation result" withError:error]];
-                    }
+                    return;
                 }
 
-                if([object isKindOfClass:[NSDictionary class]])
+                if(![object isKindOfClass:[NSDictionary class]])
                 {
-                    NSDictionary *result = object;
-                    NSDecimalNumber *jobId = [result objectForKey:@"sid"];
-
-                    SplunkJob *job = [[SplunkJob alloc] initWithAlert:alert withJobId:jobId];
-                    DDLogInfo(@"Splunk job created with sId: %@ for alert \"%@\"", [job.jobId stringValue], alert.alertName);
+                    DDLogError(@"Splunk job status check result not in expected format");
+                    return;
                 }
 
-                /*
-                SplunkSearchResult *result = [[SplunkSearchResult alloc] initWithAlert:alert withResult:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
-
-                DDLogInfo(@"Received job creation result for alert: %@", alert.alertName);
-
-                if(isTest){
-                    DDLogInfo(@"%@", result.result);
-                    [AlertHandler showAlert:@"Received job creation result from splunk"];
+                NSDictionary *result = (NSDictionary *)object;
+                NSString *status = (NSString *)[self extractValueForKey:@"dispatchState" FromObject:result];
+                if(status != nil)
+                {
+                    DDLogInfo(@"Job status of %@ returned for alert \"%@\"", status, job.alert.alertName);
                 }
-                else
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"CheckSplunkJobStatus" object:result];
-                */
-            } else {
-                if(isTest)
-                    [AlertHandler showAlert:@"Received empty result from splunk"];
-
-                DDLogWarn(@"Received empty data from splunk");
             }
-
         }
-
     }];
 
     [dataTask resume];
+
 }
 
 #pragma mark utility methods
+
+-(NSObject *) extractValueForKey: (NSString *) key FromObject: (NSDictionary *) dictionary
+{
+
+    for (NSString *dictKey in [dictionary allKeys]) {
+
+        if([[NSString stringWithString:dictKey] isEqualToString:key])
+            return [dictionary objectForKey:key];
+
+        id value = [dictionary objectForKey:dictKey];
+        if([value isKindOfClass:[NSDictionary class]])
+        {
+            id retValue = [self extractValueForKey:key FromObject:(NSDictionary *)value];
+            if(retValue != nil)
+                return retValue;
+
+        } else if([value isKindOfClass:[NSArray class]])
+        {
+            for (id object in (NSArray *) value) {
+                if([object isKindOfClass:[NSDictionary class]])
+                {
+                    id retValue = [self extractValueForKey:key FromObject:(NSDictionary *)object];
+                    if(retValue != nil)
+                        return retValue;
+                }
+            }
+        }
+    }
+    return nil;
+}
 
 -(NSURL *) createSplunkURL: (Settings *)currentSettings withEndpoint: (NSString *) endpoint withOutputType: (NSString * _Nullable) outputType
 {
@@ -212,6 +331,11 @@
 
 
     return url;
+}
+
+void RunBlockAfterDelay(int delay, void (^block)(void))
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
 @end

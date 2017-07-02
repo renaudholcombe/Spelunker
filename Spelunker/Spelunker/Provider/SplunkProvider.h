@@ -14,6 +14,8 @@
     NSURLSessionConfiguration *sessionConfiguration;
     NSURLSession *session;
     Settings *settings;
+    NSOperationQueue *jobCheckQueue;
+
 }
 
 +(id) sharedProvider;

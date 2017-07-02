@@ -29,8 +29,6 @@
     dispatch_async(dispatch_get_main_queue(), ^(void){
 
         [textView.textStorage appendAttributedString:[self getAttributedString:message]];
-
-
         [textView scrollRangeToVisible:NSMakeRange(textView.textStorage.length, 0)];
     });
 }

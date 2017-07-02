@@ -23,6 +23,7 @@
 
     }
 
+//rawResult	__NSCFString *	@"{\"links\":{},\"origin\":\"https://192.168.13.113:8089/services/search/jobs\",\"updated\":\"2017-07-02T15:57:35-04:00\",\"generator\":{\"build\":\"aeae3fe0c5af\",\"version\":\"6.6.1\"},\"entry\":[{\"name\":\"search (source=suricata-wan earliest=-1h) |\\tstats count by alertType | sort -num(count) \",\"id\":\"https://192.168.13.113:8089/services/search/jobs/1499025427.1248\",\"updated\":\"2017-07-02T15:57:35.000-04:00\",\"links\":{\"alternate\":\"/services/search/jobs/1499025427.1248\",\"search.log\":\"/services/search/jobs/1499025427.1248/search.log\",\"events\":\"/services/search/jobs/1499025427.1248/events\",\"results\":\"/services/search/jobs/1499025427.1248/results\",\"results_preview\":\"/services/search/jobs/1499025427.1248/results_preview\",\"timeline\":\"/services/search/jobs/1499025427.1248/timeline\",\"summary\":\"/services/search/jobs/1499025427.1248/summary\",\"control\":\"/services/search/jobs/1499025427.1248/control\"},\"published\":\"2017-07-02T15:57:07.000-04:00\",\"author\":\"admin\",\"content\":{\"canSummarize\":true,\"cursorTime\":\"1969-12-31T19:00:00.000-05:00\",\"default"	0x0000000101087000
 
 -(void) initializeLogging
 {

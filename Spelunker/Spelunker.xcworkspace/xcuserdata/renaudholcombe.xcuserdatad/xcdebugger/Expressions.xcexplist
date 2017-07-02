@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[SplunkProvider testConnection:]:SplunkProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "__38-[SplunkProvider searchSplunk:isTest:]_block_invoke:SplunkProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DataProvider setPassword:For:withAccount:withError:]:DataProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "__31-[EmailProvider sendTestEmail:]_block_invoke_2:EmailProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "__33-[SplunkProvider testConnection:]_block_invoke:SplunkProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[EmailProvider sendTestEmail:]:EmailProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SplunkProvider extractValueForKey:FromObject:]:SplunkProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "__31-[EmailProvider sendTestEmail:]_block_invoke:EmailProvider.m">
+      </ContextState>
+      <ContextState
+         contextName = "__49-[SplunkProvider checkSplunkJobStatus:triesLeft:]_block_invoke:SplunkProvider.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
