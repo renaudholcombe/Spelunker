@@ -167,7 +167,10 @@
                 if([object isKindOfClass:[NSDictionary class]])
                 {
                     NSDictionary *result = object;
+                    NSDecimalNumber *jobId = [result objectForKey:@"sid"];
 
+                    SplunkJob *job = [[SplunkJob alloc] initWithAlert:alert withJobId:jobId];
+                    DDLogInfo(@"Splunk job created with sId: %@ for alert \"%@\"", [job.jobId stringValue], alert.alertName);
                 }
 
                 /*

@@ -321,7 +321,7 @@ DQ
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3PG-Cu-lgU">
                                 <rect key="frame" x="360" y="13" width="122" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="pUn-gb-hUn"/>
+                                    <constraint firstAttribute="width" constant="110" id="D2l-tK-RPo"/>
                                 </constraints>
                                 <buttonCell key="cell" type="push" title="Clear log" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZSl-gw-y6Y">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -333,12 +333,12 @@ DQ
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3PG-Cu-lgU" secondAttribute="bottom" constant="20" symbolic="YES" id="01t-f6-G3b"/>
-                            <constraint firstItem="3PG-Cu-lgU" firstAttribute="top" secondItem="Lr8-SW-Cjr" secondAttribute="bottom" constant="20" symbolic="YES" id="08e-xa-JKB"/>
-                            <constraint firstItem="3PG-Cu-lgU" firstAttribute="centerX" secondItem="Lr8-SW-Cjr" secondAttribute="centerX" id="cXA-1o-3Fv"/>
-                            <constraint firstAttribute="trailing" secondItem="Lr8-SW-Cjr" secondAttribute="trailing" constant="20" symbolic="YES" id="ewf-3v-l51"/>
-                            <constraint firstItem="Lr8-SW-Cjr" firstAttribute="leading" secondItem="ZJ5-Kf-sjA" secondAttribute="leading" constant="20" symbolic="YES" id="gZd-tt-hD1"/>
-                            <constraint firstItem="Lr8-SW-Cjr" firstAttribute="top" secondItem="ZJ5-Kf-sjA" secondAttribute="top" constant="20" symbolic="YES" id="ulr-MF-Qb4"/>
+                            <constraint firstItem="Lr8-SW-Cjr" firstAttribute="centerX" secondItem="3PG-Cu-lgU" secondAttribute="centerX" id="4E1-V1-zGx"/>
+                            <constraint firstAttribute="trailing" secondItem="Lr8-SW-Cjr" secondAttribute="trailing" constant="20" symbolic="YES" id="D9D-xQ-Nke"/>
+                            <constraint firstAttribute="bottom" secondItem="3PG-Cu-lgU" secondAttribute="bottom" constant="20" symbolic="YES" id="Dn6-zw-ILr"/>
+                            <constraint firstItem="Lr8-SW-Cjr" firstAttribute="top" secondItem="ZJ5-Kf-sjA" secondAttribute="top" constant="20" symbolic="YES" id="O0q-pT-uxr"/>
+                            <constraint firstItem="3PG-Cu-lgU" firstAttribute="top" secondItem="Lr8-SW-Cjr" secondAttribute="bottom" constant="20" symbolic="YES" id="cBb-vA-mTM"/>
+                            <constraint firstItem="Lr8-SW-Cjr" firstAttribute="leading" secondItem="ZJ5-Kf-sjA" secondAttribute="leading" constant="20" symbolic="YES" id="jSv-wW-HLT"/>
                         </constraints>
                     </view>
                     <connections>
