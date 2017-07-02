@@ -20,7 +20,7 @@
 
 -(void) testConnection: (Settings *)testSettings;
 
--(void) searchSplunk:(NSString *)searchString withAlert: (Alert *) alert;
+-(void) searchSplunk:(Alert *) alert isTest: (BOOL) isTest;
 
 @end
 

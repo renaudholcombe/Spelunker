@@ -8,7 +8,7 @@
 
 #import "LogicManager.h"
 #import "Constants.h"
-#import "SplunkSearchResult.h"
+#import "SplunkReturnTypes.h"
 
 @implementation LogicManager
 
@@ -43,7 +43,10 @@
     Settings *settings = [self loadSettings];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Settings updated" object:settings];
 
+    //setup notification handlers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processSplunkResult:) name:@"ProcessSplunkResult" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireAlert:) name:@"Fire alert" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testFireAlert:) name:@"Test fire alert" object:nil];
 
     [self initTimers];
 
@@ -89,11 +92,6 @@
     [splunkProvider testConnection:settings];
 }
 
--(void) testSplunkQuery: (Alert *) alert
-{
-
-}
-
 #pragma mark internal methods
 
 -(void) saveAlertList:(NSArray *)alertList
@@ -108,6 +106,18 @@
 
     NSString *emailBody = [self createEmailBody:searchResult];
     [emailProvider sendEmailWithAlertName: alert.alertName withBody:emailBody];
+}
+
+-(void) fireAlert: (NSNotification *)notification
+{
+    Alert *alert = notification.object;
+    [splunkProvider searchSplunk:alert isTest:false];
+}
+
+-(void) testFireAlert: (NSNotification *)notification
+{
+    Alert *alert = notification.object;
+    [splunkProvider searchSplunk:alert isTest:true];
 }
 
 -(NSString *) createEmailBody: (SplunkSearchResult *) searchResult

@@ -6,7 +6,9 @@
 //  Copyright © 2017 Renaud Holcombe. All rights reserved.
 //
 
-#import "SplunkSearchResult.h"
+#import "SplunkReturnTypes.h"
+
+#pragma mark search job result
 
 @implementation SplunkSearchResult
 
@@ -17,6 +19,23 @@
     self = [super init];
     alert = searchAlert;
     result = queryResult;
+
+    return self;
+}
+
+@end
+
+#pragma mark search job creation result
+
+@implementation SplunkJob
+
+@synthesize jobId, alert;
+
+-(id) initWithAlert: (Alert *) searchAlert withJobId: (NSDecimalNumber *) jId
+{
+    self = [super init];
+    alert = searchAlert;
+    jobId = jId;
 
     return self;
 }

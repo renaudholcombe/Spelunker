@@ -36,6 +36,5 @@
 
 //splunk
 -(void) testSplunkConnection: (Settings *)settings;
--(void) testSplunkQuery: (Alert *) alert;
 
 @end

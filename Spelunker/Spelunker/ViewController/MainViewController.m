@@ -188,7 +188,15 @@
 }
 
 - (IBAction)testButtonPressed:(id)sender {
-    
+
+    Alert *currentAlert = alertList[[alertTable selectedRow]];
+    currentAlert.alertName = alertNameTextField.stringValue;
+    currentAlert.alertType = (pollingRadio.state)? Polling : Scheduled;
+    currentAlert.scheduleTime = scheduledDatePicker.dateValue;
+    currentAlert.schedulerTimeInterval = scheduledInterval.integerValue;
+    currentAlert.searchString = alertSearchTextField.stringValue;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"Test fire alert" object:currentAlert];
 }
 
 - (IBAction)updateAlertType:(id)sender {
