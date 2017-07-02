@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Settings.h"
+#import "Alert.h"
 
 @interface SplunkProvider : NSObject {
     NSURLSessionConfiguration *sessionConfiguration;
@@ -19,7 +20,7 @@
 
 -(void) testConnection: (Settings *)testSettings;
 
--(void) searchSplunk:(NSString *)searchString withAlertId: (NSUUID *) alertId;
+-(void) searchSplunk:(NSString *)searchString withAlert: (Alert *) alert;
 
 @end
 

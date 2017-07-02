@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MailCore/MailCore.h>
 #import "Settings.h"
 
-@interface EmailProvider : NSObject
+@interface EmailProvider : NSObject {
+    MCOSMTPSession *session;
+    Settings *settings;
+}
 
 +(id) sharedProvider;
 
--(void) sendTestEmail: (Settings *)settings;
+-(void) sendTestEmail: (Settings *)testSettings;
+-(void) sendEmailWithAlertName: (NSString *) alertName withBody: (NSString *)body;
 
 @end

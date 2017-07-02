@@ -96,7 +96,7 @@
 
 #pragma mark search methods
 
--(void) searchSplunk:(NSString *)searchString withAlertId: (NSUUID *) alertId
+-(void) searchSplunk:(NSString *)searchString withAlert: (Alert *) alert
 {
     //create job
     NSURL *createUrl = [self createSplunkURL: settings withEndpoint:@"/services/search/jobs/export/" withOutputType:@"raw"];
@@ -141,9 +141,9 @@
             }
             if(data != nil)
             {
-                SplunkSearchResult *result = [[SplunkSearchResult alloc] initWithAlertId:alertId withResult:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+                SplunkSearchResult *result = [[SplunkSearchResult alloc] initWithAlert:alert withResult:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ProcessSplunkResult" object:result];
-                DDLogInfo(@"Received query results for alertId: %@", [alertId UUIDString]);
+                DDLogInfo(@"Received query results for alert: %@", alert.alertName);
             }
         }
 

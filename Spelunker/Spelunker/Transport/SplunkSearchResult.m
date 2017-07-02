@@ -10,12 +10,12 @@
 
 @implementation SplunkSearchResult
 
-@synthesize alertId, result;
+@synthesize alert, result;
 
--(id) initWithAlertId: (NSUUID *) alertid withResult: (NSString *) queryResult
+-(id) initWithAlert: (Alert *) searchAlert withResult: (NSString *) queryResult
 {
     self = [super init];
-    alertId = alertid;
+    alert = searchAlert;
     result = queryResult;
 
     return self;

@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Alert.h"
 
 @interface SplunkSearchResult : NSObject
 
-@property (nonatomic, retain) NSUUID *alertId;
+@property (nonatomic, retain) Alert *alert;
 @property (nonatomic, retain) NSString *result;
 
--(id) initWithAlertId: (NSUUID *) alertid withResult: (NSString *) queryResult;
+-(id) initWithAlert: (Alert *) searchAlert withResult: (NSString *) queryResult;
 
 @end

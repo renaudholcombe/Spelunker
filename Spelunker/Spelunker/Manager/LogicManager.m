@@ -39,6 +39,10 @@
         [alertDictionary setObject:alert forKey:alert.alertId];
     }
 
+    //load settings for the providers
+    Settings *settings = [self loadSettings];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Settings updated" object:settings];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processSplunkResult:) name:@"ProcessSplunkResult" object:nil];
 
     [self initTimers];
@@ -56,7 +60,7 @@
 -(void) saveAlert:(Alert *)alert
 {
     [alertDictionary setObject:alert forKey:alert.alertId];
-    [splunkProvider searchSplunk:alert.searchString withAlertId: (NSUUID *) alert.alertId];
+
     //timer modification code is going to live here;
     [self saveAlertList:[alertDictionary allValues]];
 }
@@ -85,6 +89,11 @@
     [splunkProvider testConnection:settings];
 }
 
+-(void) testSplunkQuery: (Alert *) alert
+{
+
+}
+
 #pragma mark internal methods
 
 -(void) saveAlertList:(NSArray *)alertList
@@ -95,16 +104,16 @@
 -(void) processSplunkResult: (NSNotification *)notifiction
 {
     SplunkSearchResult *searchResult = notifiction.object;
+    Alert *alert = [alertDictionary objectForKey:searchResult.alert];
 
     NSString *emailBody = [self createEmailBody:searchResult];
-
-
+    [emailProvider sendEmailWithAlertName: alert.alertName withBody:emailBody];
 }
 
 -(NSString *) createEmailBody: (SplunkSearchResult *) searchResult
 {
-    NSString *body = [[NSString alloc] init];
-    Alert *alert = [alertDictionary objectForKey:searchResult.alertId];
+    NSString *body = nil;
+    Alert *alert = [alertDictionary objectForKey:searchResult.alert];
     if(alert == nil || searchResult.result == nil)
     {
         DDLogError(@"Could not find alert/result for splunk query");
@@ -112,7 +121,7 @@
     }
 
     body = [NSString stringWithFormat:@"Spelunker results for alert: %@\n\n", alert.alertName];
-    body = [body stringByAppendingString:searchResult.result];
+    body = [body stringByAppendingString:[searchResult.result stringByReplacingOccurrencesOfString:@"," withString:@"\t"]];
 
     return body;
 }
