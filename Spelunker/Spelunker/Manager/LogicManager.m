@@ -53,6 +53,7 @@
 -(void) saveAlert:(Alert *)alert
 {
     [alertDictionary setObject:alert forKey:alert.alertId];
+    [splunkProvider searchSplunk:alert.searchString];
     //timer modification code is going to live here;
     [self saveAlertList:[alertDictionary allValues]];
 }

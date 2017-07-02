@@ -12,10 +12,13 @@
 @interface SplunkProvider : NSObject {
     NSURLSessionConfiguration *sessionConfiguration;
     NSURLSession *session;
+    Settings *settings;
 }
 
 +(id) sharedProvider;
 
--(void) testConnection: (Settings *)settings;
+-(void) testConnection: (Settings *)testSettings;
+
+-(void) searchSplunk:(NSString *)searchString;
 
 @end

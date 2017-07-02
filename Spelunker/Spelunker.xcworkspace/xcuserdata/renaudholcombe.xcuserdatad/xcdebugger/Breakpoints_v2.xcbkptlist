@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spelunker/Provider/EmailProvider.m"
-            timestampString = "520700554.029718"
+            timestampString = "520269812.176409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-sendTestEmail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spelunker/Provider/EmailProvider.m"
-            timestampString = "520700554.029718"
+            timestampString = "520269812.176409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-sendTestEmail:"
             landmarkType = "7">
             <Locations>
@@ -70,15 +70,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spelunker/Provider/SplunkProvider.m"
-            timestampString = "520705974.993382"
+            timestampString = "520272286.54354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176">
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-searchSplunk:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -88,43 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spelunker/Provider/SplunkProvider.m"
-            timestampString = "520705974.993382"
+            timestampString = "520271615.059388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[SplunkProvider searchSplunk:isTest:]_block_invoke"
-                  moduleName = "Spelunker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/ogma/sourceControl/SplunkAlerter/Spelunker/Spelunker/Provider/SplunkProvider.m"
-                  timestampString = "520705975.338263"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "2555">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[SplunkProvider searchSplunk:isTest:]_block_invoke"
-                  moduleName = "Spelunker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/ogma/sourceControl/SplunkAlerter/Spelunker/Spelunker/Provider/SplunkProvider.m"
-                  timestampString = "520705975.341621"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "2586">
-               </Location>
-            </Locations>
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-searchSplunk:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -133,26 +105,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Spelunker/Provider/SplunkProvider.m"
-            timestampString = "520701320.745494"
+            filePath = "Spelunker/Manager/LogicManager.m"
+            timestampString = "520269736.740487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Spelunker/Provider/SplunkProvider.m"
-            timestampString = "520706040.031137"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167">
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-saveAlert:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

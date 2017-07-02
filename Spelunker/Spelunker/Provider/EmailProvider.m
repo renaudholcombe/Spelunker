@@ -19,18 +19,15 @@
     dispatch_once(&onceToken, ^{
         emailProvider = [[EmailProvider alloc] init];
     });
+
+    DDLogInfo(@"EmailProvider initialized");
+
     return emailProvider;
 }
 
 -(void)sendTestEmail:(Settings *)settings
 {
     MCOSMTPSession *session = [[MCOSMTPSession alloc] init];
-
-//debug only
-/*    [session setConnectionLogger:^(void * connectionID, MCOConnectionLogType type, NSData * data){
-        DDLogDebug(@"data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    }];
- */
 
     session.hostname = settings.smtpServer;
     session.port = (unsigned int) settings.smtpPortOverride;

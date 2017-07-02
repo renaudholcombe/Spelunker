@@ -11,6 +11,8 @@
 
 @implementation SplunkProvider
 
+#pragma mark initializers
+
 +(id) sharedProvider
 {
     static SplunkProvider *splunkProvider = nil;
@@ -18,6 +20,8 @@
     dispatch_once(&onceToken, ^{
         splunkProvider = [[SplunkProvider alloc] init];
     });
+
+    DDLogInfo(@"SplunkProvider initialized");
 
     return splunkProvider;
 }
@@ -27,13 +31,17 @@
     self = [super init];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshSession:) name:@"Settings updated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkSearchStatus:) name:@"CheckSearchStatus" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retrieveSearchResults:) name:@"RetrieveSearchResults" object:nil];
+
+
 
     return self;
 }
 
 -(void) refreshSession: (NSNotification *) notification
 {
-    Settings *settings = notification.object;
+    settings = notification.object;
 
     sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSString *authString = [NSString stringWithFormat:@"%@:%@", settings.splunkUsername, settings.splunkPassword];
@@ -48,10 +56,12 @@
 
 }
 
--(void) testConnection:(Settings *)settings
+#pragma mark test methods
+
+-(void) testConnection:(Settings *)testSettings
 {
     //try to get a login token
-    NSURL *url = [self createSplunkURL:settings withEndpoint:@"/services/search/jobs/"];
+    NSURL *url = [self createSplunkURL:settings withEndpoint:@"/services/search/jobs/" withOutputType:nil];
 
     NSURLSessionConfiguration *testConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSString *authString = [NSString stringWithFormat:@"%@:%@", settings.splunkUsername, settings.splunkPassword];
@@ -73,7 +83,8 @@
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response ;
         if(httpResponse.statusCode == 401 || httpResponse.statusCode == 403)
         {
-            [AlertHandler showAlert:@"Splunk authentication failed!"];
+            [AlertHandler postError:[[ErrorMessage alloc] initWithMessage:@"Splunk authentication failed!" withError:nil]];
+
             return;
         }
 
@@ -85,9 +96,62 @@
     [dataTask resume];
 }
 
--(NSURL *) createSplunkURL: (Settings *)settings withEndpoint: (NSString *) endpoint
+#pragma mark search methods
+
+-(void) searchSplunk:(NSString *)searchString
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@:%@%@", settings.splunkServer, [NSNumber numberWithInteger: settings.splunkPortOverride], endpoint];
+    //create job
+    NSURL *createUrl = [self createSplunkURL: settings withEndpoint:@"/services/search/jobs/export/" withOutputType:@"raw"];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:createUrl];
+    request.HTTPMethod = @"POST";
+    searchString = [NSString stringWithFormat:@"search=%@", searchString];
+    request.HTTPBody = [searchString dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+
+        if(error != nil)
+        {
+            DDLogError(@"Error creating splunk search job");
+            DDLogDebug(@"%@", error);
+            return;
+
+        } else {
+
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if(httpResponse.statusCode != 200)
+            {
+                NSString *responseMessage;
+                switch(httpResponse.statusCode)
+                {
+                    case 401:
+                    case 403:
+                        responseMessage = @"Create splunk search API call returned unauthorized";
+                        DDLogError(@"%@",responseMessage);
+                        break;
+                    default:
+                        responseMessage = [NSString stringWithFormat:@"Create splunk search API call returned unexpected status code: %ldl", (long)httpResponse.statusCode];
+                        DDLogWarn(@"%@", responseMessage);
+                        break;
+                }
+
+            }
+
+        }
+
+    }];
+
+    [dataTask resume];
+}
+
+#pragma mark utility methods
+
+-(NSURL *) createSplunkURL: (Settings *)currentSettings withEndpoint: (NSString *) endpoint withOutputType: (NSString * _Nullable) outputType
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@:%@%@", currentSettings.splunkServer, [NSNumber numberWithInteger: currentSettings.splunkPortOverride], endpoint];
+
+    if(outputType)
+        urlString = [NSString stringWithFormat:@"%@?output_mode=%@", urlString, outputType];
 
     NSURL *url = [NSURL URLWithString:urlString];
 
