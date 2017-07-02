@@ -17,6 +17,7 @@
 		3E25B0ED1F01E6C200618F44 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E25B0F11F01F2D200618F44 /* UITextViewLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0F01F01F2D200618F44 /* UITextViewLogger.m */; };
 		3E25B0F51F02041200618F44 /* SpelunkerLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0F41F02041200618F44 /* SpelunkerLogFormatter.m */; };
+		3E25B0FE1F02C30400618F44 /* SplunkSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0FD1F02C30400618F44 /* SplunkSearchResult.m */; };
 		3E51E4301EEDB706006C5751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E42F1EEDB706006C5751 /* AppDelegate.m */; };
 		3E51E4331EEDB706006C5751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4321EEDB706006C5751 /* main.m */; };
 		3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E51E4371EEDB706006C5751 /* Assets.xcassets */; };
@@ -72,6 +73,8 @@
 		3E25B0F21F01FC8B00618F44 /* Spelunker.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spelunker.pch; sourceTree = "<group>"; };
 		3E25B0F31F02041200618F44 /* SpelunkerLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpelunkerLogFormatter.h; path = Utility/SpelunkerLogFormatter.h; sourceTree = "<group>"; };
 		3E25B0F41F02041200618F44 /* SpelunkerLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpelunkerLogFormatter.m; path = Utility/SpelunkerLogFormatter.m; sourceTree = "<group>"; };
+		3E25B0FC1F02C30400618F44 /* SplunkSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplunkSearchResult.h; path = Transport/SplunkSearchResult.h; sourceTree = "<group>"; };
+		3E25B0FD1F02C30400618F44 /* SplunkSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplunkSearchResult.m; path = Transport/SplunkSearchResult.m; sourceTree = "<group>"; };
 		3E51E42B1EEDB706006C5751 /* Spelunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spelunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E51E42E1EEDB706006C5751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E51E42F1EEDB706006C5751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				3E51E44D1EEDCA15006C5751 /* Alert.m */,
 				3E66264B1EFDD6E700508793 /* Settings.h */,
 				3E66264C1EFDD6E700508793 /* Settings.m */,
+				3E25B0FC1F02C30400618F44 /* SplunkSearchResult.h */,
+				3E25B0FD1F02C30400618F44 /* SplunkSearchResult.m */,
 			);
 			name = Transport;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				3E51E44E1EEDCA15006C5751 /* Alert.m in Sources */,
 				3EF1C0BA1EFDE51600E91121 /* JSONKeyMapper.m in Sources */,
 				3E51E4331EEDB706006C5751 /* main.m in Sources */,
+				3E25B0FE1F02C30400618F44 /* SplunkSearchResult.m in Sources */,
 				3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */,
 				3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */,
 				3EF1C0B31EFDE50800E91121 /* JSONAPI.m in Sources */,

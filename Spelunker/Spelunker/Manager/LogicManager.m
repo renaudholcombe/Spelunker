@@ -8,6 +8,7 @@
 
 #import "LogicManager.h"
 #import "Constants.h"
+#import "SplunkSearchResult.h"
 
 @implementation LogicManager
 
@@ -38,6 +39,8 @@
         [alertDictionary setObject:alert forKey:alert.alertId];
     }
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processSplunkResult:) name:@"ProcessSplunkResult" object:nil];
+
     [self initTimers];
 
     return self;
@@ -53,7 +56,7 @@
 -(void) saveAlert:(Alert *)alert
 {
     [alertDictionary setObject:alert forKey:alert.alertId];
-    [splunkProvider searchSplunk:alert.searchString];
+    [splunkProvider searchSplunk:alert.searchString withAlertId: (NSUUID *) alert.alertId];
     //timer modification code is going to live here;
     [self saveAlertList:[alertDictionary allValues]];
 }
@@ -87,6 +90,31 @@
 -(void) saveAlertList:(NSArray *)alertList
 {
     [dataProvider saveAlerts:alertList];
+}
+
+-(void) processSplunkResult: (NSNotification *)notifiction
+{
+    SplunkSearchResult *searchResult = notifiction.object;
+
+    NSString *emailBody = [self createEmailBody:searchResult];
+
+
+}
+
+-(NSString *) createEmailBody: (SplunkSearchResult *) searchResult
+{
+    NSString *body = [[NSString alloc] init];
+    Alert *alert = [alertDictionary objectForKey:searchResult.alertId];
+    if(alert == nil || searchResult.result == nil)
+    {
+        DDLogError(@"Could not find alert/result for splunk query");
+        return @"";
+    }
+
+    body = [NSString stringWithFormat:@"Spelunker results for alert: %@\n\n", alert.alertName];
+    body = [body stringByAppendingString:searchResult.result];
+
+    return body;
 }
 
 -(void) initTimers

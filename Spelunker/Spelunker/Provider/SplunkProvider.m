@@ -8,6 +8,7 @@
 
 #import "SplunkProvider.h"
 #import "AlertHandler.h"
+#import "SplunkSearchResult.h"
 
 @implementation SplunkProvider
 
@@ -31,9 +32,6 @@
     self = [super init];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshSession:) name:@"Settings updated" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkSearchStatus:) name:@"CheckSearchStatus" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retrieveSearchResults:) name:@"RetrieveSearchResults" object:nil];
-
 
 
     return self;
@@ -98,7 +96,7 @@
 
 #pragma mark search methods
 
--(void) searchSplunk:(NSString *)searchString
+-(void) searchSplunk:(NSString *)searchString withAlertId: (NSUUID *) alertId
 {
     //create job
     NSURL *createUrl = [self createSplunkURL: settings withEndpoint:@"/services/search/jobs/export/" withOutputType:@"raw"];
@@ -112,7 +110,7 @@
 
         if(error != nil)
         {
-            DDLogError(@"Error creating splunk search job");
+            DDLogError(@"Error executing splunk search job");
             DDLogDebug(@"%@", error);
             return;
 
@@ -126,17 +124,27 @@
                 {
                     case 401:
                     case 403:
-                        responseMessage = @"Create splunk search API call returned unauthorized";
+                        responseMessage = @"Splunk search API call returned unauthorized";
                         DDLogError(@"%@",responseMessage);
                         break;
+                    case 400:
+                        responseMessage = @"Splunk search API returned \"Bad Request\". Confirm your search string";
+                        DDLogError(@"%@", responseMessage);
+                        return;
+                        break;
                     default:
-                        responseMessage = [NSString stringWithFormat:@"Create splunk search API call returned unexpected status code: %ldl", (long)httpResponse.statusCode];
+                        responseMessage = [NSString stringWithFormat:@"Splunk search API call returned unexpected status code: %ldl", (long)httpResponse.statusCode];
                         DDLogWarn(@"%@", responseMessage);
                         break;
                 }
 
             }
-
+            if(data != nil)
+            {
+                SplunkSearchResult *result = [[SplunkSearchResult alloc] initWithAlertId:alertId withResult:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ProcessSplunkResult" object:result];
+                DDLogInfo(@"Received query results for alertId: %@", [alertId UUIDString]);
+            }
         }
 
     }];

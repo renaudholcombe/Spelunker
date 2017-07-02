@@ -19,6 +19,7 @@
 
 -(void) testConnection: (Settings *)testSettings;
 
--(void) searchSplunk:(NSString *)searchString;
+-(void) searchSplunk:(NSString *)searchString withAlertId: (NSUUID *) alertId;
 
 @end
+
