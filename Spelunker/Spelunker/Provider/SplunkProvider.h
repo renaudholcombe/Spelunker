@@ -9,20 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "Settings.h"
 #import "Alert.h"
+#import "Constants.h"
 
 @interface SplunkProvider : NSObject {
     NSURLSessionConfiguration *sessionConfiguration;
     NSURLSession *session;
     Settings *settings;
-    NSOperationQueue *jobCheckQueue;
-
+    NSOperationQueue *jobOperationQueue;
+    NSDictionary *searchJobStatus;
 }
 
 +(id) sharedProvider;
 
 -(void) testConnection: (Settings *)testSettings;
 
--(void) searchSplunk:(Alert *) alert isTest: (BOOL) isTest;
+-(void) searchSplunk:(Alert *) alert;
 
 @end
 

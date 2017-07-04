@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "Constants.h"
+#import "AlertHandler.h"
 
 
 @interface MainViewController ()
@@ -196,7 +197,8 @@
     currentAlert.schedulerTimeInterval = scheduledInterval.integerValue;
     currentAlert.searchString = alertSearchTextField.stringValue;
 
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"Test fire alert" object:currentAlert];
+    [AlertHandler showAlert:@"Query is being tested. You should receive an email to the configured address. Check the Log Viewer in case of any errors."];
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"Fire alert" object:currentAlert];
 }
 
 - (IBAction)updateAlertType:(id)sender {

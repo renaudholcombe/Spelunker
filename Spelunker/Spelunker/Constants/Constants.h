@@ -14,4 +14,16 @@ typedef NS_ENUM(NSInteger, AlertType) {
     Polling
 } ;
 
+typedef NS_ENUM(NSInteger, SplunkJobStatus)
+{
+    UNKNOWN = 0,
+    QUEUED,
+    PARSING,
+    RUNNING,
+    PAUSED,
+    FINALIZING,
+    FAILED,
+    DONE
+};
+
 //#endif /* Constants_h */

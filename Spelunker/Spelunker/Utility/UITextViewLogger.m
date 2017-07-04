@@ -43,6 +43,9 @@
         case DDLogFlagWarning:
             [string addAttribute:NSForegroundColorAttributeName value:[NSColor orangeColor] range:NSMakeRange(0, string.length)];
             break;
+        case DDLogFlagDebug:
+            [string addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:NSMakeRange(0, string.length)];
+            break;
         default:
             break;
     }

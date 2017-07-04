@@ -14,11 +14,11 @@
 
 @synthesize alert, result;
 
--(id) initWithAlert: (Alert *) searchAlert withResult: (NSString *) queryResult
+-(id) initWithAlert: (Alert *) searchAlert withResult: (NSDictionary *) resultObject
 {
     self = [super init];
     alert = searchAlert;
-    result = queryResult;
+    result = resultObject;
 
     return self;
 }

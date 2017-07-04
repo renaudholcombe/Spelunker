@@ -14,9 +14,9 @@
 @interface SplunkSearchResult : NSObject
 
 @property (nonatomic, retain) Alert *alert;
-@property (nonatomic, retain) NSString *result;
+@property (nonatomic, retain) NSDictionary *result;
 
--(id) initWithAlert: (Alert *) searchAlert withResult: (NSString *) queryResult;
+-(id) initWithAlert: (Alert *) searchAlert withResult: (NSDictionary *) resultObject;
 
 @end
 
@@ -32,7 +32,7 @@
 @end
 
 
-#pragma mark search job status result
+/*#pragma mark search job status result
 
 //might not need this one
 @interface SplunkJobStatus : NSObject
@@ -43,3 +43,4 @@
 -(id) initWithAlert: (Alert *) searchAlert withJobId: (NSDecimalNumber *) jId;
 
 @end
+*/

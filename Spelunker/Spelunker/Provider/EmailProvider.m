@@ -49,7 +49,7 @@
     
 }
 
-#pragma mark public methods
+#pragma mark email methods
 
 -(void)sendTestEmail:(Settings *)testSettings
 {
@@ -94,7 +94,7 @@
     NSMutableArray *to = [NSMutableArray arrayWithArray:@[ [MCOAddress addressWithMailbox:settings.smtpEmailAddress]]];
     [builder.header setTo:to];
     [builder.header setSubject:[subject stringByAppendingString:alertName]];
-    [builder setTextBody:body];
+    [builder setHTMLBody:body];
 
     NSData *rfc822Data = [builder data];
 
@@ -103,10 +103,10 @@
     [sendOperation start:^(NSError *error){
         if(error)
         {
-            DDLogError(@"Error sending email for alert \"%@\": %@", alertName,error);
+            DDLogError(@"Error sending email to %@ for alert \"%@\": %@", settings.smtpEmailAddress,alertName,error);
         } else
         {
-            DDLogInfo(@"Email sent successfully for alert \"%@\"!", alertName);
+            DDLogInfo(@"Email sent successfully to %@ for alert \"%@\"!", settings.smtpEmailAddress,alertName);
         }
     }];
 

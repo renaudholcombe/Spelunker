@@ -44,9 +44,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Settings updated" object:settings];
 
     //setup notification handlers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processSplunkResult:) name:@"ProcessSplunkResult" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processSplunkResult:) name:@"Process splunk result" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireAlert:) name:@"Fire alert" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testFireAlert:) name:@"Test fire alert" object:nil];
 
     [self initTimers];
 
@@ -67,6 +66,12 @@
     //timer modification code is going to live here;
     [self saveAlertList:[alertDictionary allValues]];
 }
+
+-(void) saveAlertList:(NSArray *)alertList
+{
+    [dataProvider saveAlerts:alertList];
+}
+
 
 #pragma mark settings methods
 
@@ -92,48 +97,77 @@
     [splunkProvider testConnection:settings];
 }
 
-#pragma mark internal methods
-
--(void) saveAlertList:(NSArray *)alertList
-{
-    [dataProvider saveAlerts:alertList];
-}
-
 -(void) processSplunkResult: (NSNotification *)notifiction
 {
     SplunkSearchResult *searchResult = notifiction.object;
-    Alert *alert = [alertDictionary objectForKey:searchResult.alert];
 
     NSString *emailBody = [self createEmailBody:searchResult];
-    [emailProvider sendEmailWithAlertName: alert.alertName withBody:emailBody];
+    [emailProvider sendEmailWithAlertName: searchResult.alert.alertName withBody:emailBody];
 }
 
 -(void) fireAlert: (NSNotification *)notification
 {
     Alert *alert = notification.object;
-    [splunkProvider searchSplunk:alert isTest:false];
+    [splunkProvider searchSplunk:alert];
 }
 
--(void) testFireAlert: (NSNotification *)notification
-{
-    Alert *alert = notification.object;
-    [splunkProvider searchSplunk:alert isTest:true];
-}
+#pragma mark utility methods
 
 -(NSString *) createEmailBody: (SplunkSearchResult *) searchResult
 {
     NSString *body = nil;
-    Alert *alert = [alertDictionary objectForKey:searchResult.alert];
-    if(alert == nil || searchResult.result == nil)
-    {
-        DDLogError(@"Could not find alert/result for splunk query");
-        return @"";
-    }
 
-    body = [NSString stringWithFormat:@"Spelunker results for alert: %@\n\n", alert.alertName];
-    body = [body stringByAppendingString:[searchResult.result stringByReplacingOccurrencesOfString:@"," withString:@"\t"]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm zzz"];
+    NSString *css = @"<style>p { font-family: arial, sans-serif;} table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;} td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;} tr:nth-child(even) {background-color: #dddddd;}</style>";
+
+    body = [NSString stringWithFormat:@"<html>%@<p><b>Spelunker results for alert \"%@\" executed at %@</b></p><br />", css,searchResult.alert.alertName, [formatter stringFromDate:[NSDate date]]];
+
+    NSString *table = [self convertSplunkJsonToHtmlTable:[searchResult.result objectForKey:@"fields"] content:[searchResult.result objectForKey:@"results"]];
+
+    body = [body stringByAppendingString:table];
+    body = [body stringByAppendingString:@"</html>"];
 
     return body;
+}
+
+-(NSString *) convertSplunkJsonToHtmlTable: (NSArray *) rawFields content:(NSArray *)results
+{
+
+    //convert rawFields array to a flat array
+    NSMutableArray *fields = [[NSMutableArray alloc] init];
+    for (NSDictionary *fieldObject in rawFields) {
+        NSString *fieldName = [fieldObject objectForKey:@"name"];
+        if(fieldName != nil)
+            [fields addObject:fieldName];
+    }
+
+    NSString *final = @"<table>%@%@</table>";
+    NSString *header = nil;
+    NSString *data = @"";
+
+    header = @"<tr>";
+    for (NSString *field in fields) {
+        header = [header stringByAppendingString:[NSString stringWithFormat:@"<th>%@</th>", field]];
+    }
+    header = [header stringByAppendingString:@"</tr>"];
+
+    //onto the data
+    for (NSDictionary *row in results) {
+        data = [data stringByAppendingString:@"<tr>"];
+
+        for (NSString *column in fields) {
+            NSString *value = [row objectForKey:column];
+            if(value == nil)
+                value = @"";
+            data = [data stringByAppendingString:[NSString stringWithFormat:@"<td>%@</td>", value]];
+        }
+
+        data = [data stringByAppendingString:@"</tr>"];
+    }
+    final = [NSString stringWithFormat:final, header, data];
+
+    return final;
 }
 
 -(void) initTimers
