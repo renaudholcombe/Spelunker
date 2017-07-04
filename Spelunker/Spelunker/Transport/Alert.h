@@ -23,12 +23,13 @@
 @property (nonatomic) BOOL isValid;
 @property (nonatomic, retain) NSTimer <Ignore> *timer;
 
-//-(void)SetDefaults;
+-(NSDate *) nextFireTime;
 
 @end
 
 @interface AlertList: JSONModel
 
 @property (nonatomic) NSArray <Alert> *alertList;
+
 
 @end

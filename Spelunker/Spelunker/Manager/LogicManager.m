@@ -175,4 +175,9 @@
 
 }
 
+-(void) initTimer: (Alert *)alert
+{
+
+}
+
 @end

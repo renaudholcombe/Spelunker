@@ -40,6 +40,66 @@
     return NO;
 }
 
+-(NSDate *) nextFireTime
+{
+    NSDate *nextFireTime = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components;
+
+    components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:nextFireTime];
+
+    if(alertType == Polling)
+    {
+        NSInteger nextFive = (5 - (components.minute % 5)) * 60;
+        nextFireTime = [nextFireTime dateByAddingTimeInterval:nextFive];
+    } else { // scheduled. definitely a bit more complex
+
+        NSInteger currentHour = components.hour;
+        NSInteger currentMinute = components.minute;
+
+        NSDateComponents *scheduleComponents = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:scheduleTime];
+        NSInteger scheduledHour = scheduleComponents.hour;
+        NSInteger scheduledMinute = scheduleComponents.minute;
+        NSInteger plusDays = 0;
+
+        if(scheduledHour < currentHour)
+        {
+            NSInteger rollingHour = scheduledHour;
+            while ((rollingHour + (24 * plusDays)) < currentHour )
+            {
+                rollingHour += schedulerTimeInterval;
+                if(rollingHour > 23){
+                    plusDays += floor((double)rollingHour/24.00);
+                }
+
+                rollingHour = rollingHour % 23;
+
+            }
+
+            currentHour = rollingHour;
+        }
+
+        if(scheduledMinute < currentMinute && plusDays == 0 && currentHour == scheduledHour)
+        {
+            currentHour += schedulerTimeInterval;
+            if(currentHour > 23)
+            {
+                plusDays = floor((double)currentHour/24.00);
+                currentHour = currentHour % 23;
+            }
+        } else {
+            currentHour = scheduledHour;
+        }
+
+        components.hour = currentHour;
+        components.minute = scheduledMinute;
+        components.day += plusDays; //might need to change this to a date-with-timeinterval in case it doesn't handle crossing over a year well
+
+        nextFireTime = [calendar dateFromComponents:components];
+    }
+    return nextFireTime;
+}
+
 @end
 
 @implementation AlertList

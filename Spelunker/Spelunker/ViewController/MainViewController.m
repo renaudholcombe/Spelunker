@@ -119,7 +119,6 @@
             scheduledInterval.stringValue = @"";
         else
             scheduledInterval.integerValue = alert.schedulerTimeInterval;
-
     }
 
     saveAlertButton.enabled = NO;
