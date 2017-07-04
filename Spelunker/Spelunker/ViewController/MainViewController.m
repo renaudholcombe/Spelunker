@@ -63,7 +63,6 @@
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification
 {
-    DDLogDebug(@"selected row = %ld", (long) [notification.object selectedRow]);
     NSInteger selectedRow = [notification.object selectedRow];
     if(selectedRow == -1 || selectedRow > alertList.count)
     {
@@ -72,6 +71,7 @@
     }
 
     Alert *alert = [alertList objectAtIndex:[notification.object selectedRow]];
+    DDLogDebug(@"Selected alert: %@", alert.alertName);
     tempAlertId = alert.alertId;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SwitchAlert" object:alert];

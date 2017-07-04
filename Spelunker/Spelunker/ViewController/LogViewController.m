@@ -21,6 +21,6 @@
 
 
 - (IBAction)clearLogButton:(id)sender {
-    [logTextView setString:@""];
+    [logger flushLogCache];
 }
 @end

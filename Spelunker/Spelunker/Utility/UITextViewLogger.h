@@ -16,5 +16,6 @@
 @property (nonatomic, weak) NSTextView *textView;
 
 -(id)initWithLogFormatter: (NSObject<DDLogFormatter> *)formatter;
+-(void)flushLogCache;
 
 @end

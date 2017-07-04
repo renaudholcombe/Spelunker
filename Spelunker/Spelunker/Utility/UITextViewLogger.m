@@ -56,12 +56,18 @@
 -(void) setTextView:(NSTextView *)newTextView
 {
     textView = newTextView;
-    NSArray *flushedCache = [[NSArray alloc] initWithArray:logMsgCache];
-    [logMsgCache removeAllObjects];
+    //NSArray *flushedCache = [[NSArray alloc] initWithArray:logMsgCache];
+    //[logMsgCache removeAllObjects];
 
-    for (DDLogMessage *message in flushedCache) {
+    for (DDLogMessage *message in logMsgCache) {
         [self appendTextStorageString:message];
     }
+}
+
+-(void)flushLogCache
+{
+    [logMsgCache removeAllObjects];
+    [textView setString:@""];
 }
 
 
@@ -75,6 +81,8 @@
     } else
     {
         [logMsgCache addObject:logMessage];
+        if(logMsgCache.count > 100) //this application is meant for longterm use, make sure we don't steal all the resources.
+            [logMsgCache removeObjectAtIndex:0];
     }
 }
 
