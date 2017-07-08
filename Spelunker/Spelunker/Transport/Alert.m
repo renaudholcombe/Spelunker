@@ -7,6 +7,9 @@
 //
 
 #import "Alert.h"
+#import "Constants.h"
+
+const NSInteger POLLINGSCHEDULEFREQUENCY = 2; //minutes
 
 @implementation Alert
 
@@ -46,11 +49,11 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components;
 
-    components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:nextFireTime];
+    components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitTimeZone) fromDate:nextFireTime];
 
     if(alertType == Polling)
     {
-        NSInteger nextFive = (5 - (components.minute % 5)) * 60;
+        NSInteger nextFive = (POLLINGSCHEDULEFREQUENCY - (components.minute % POLLINGSCHEDULEFREQUENCY)) * 60;
         nextFireTime = [nextFireTime dateByAddingTimeInterval:nextFive];
     } else { // scheduled. definitely a bit more complex
 
@@ -87,15 +90,27 @@
                 plusDays = floor((double)currentHour/24.00);
                 currentHour = currentHour % 23;
             }
-        } else {
+        } /*else {
             currentHour = scheduledHour;
-        }
+        }*/
 
         components.hour = currentHour;
         components.minute = scheduledMinute;
         components.day += plusDays; //might need to change this to a date-with-timeinterval in case it doesn't handle crossing over a year well
 
         nextFireTime = [calendar dateFromComponents:components];
+
+
+
+        NSTimeZone* sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+        NSTimeZone* destinationTimeZone = [NSTimeZone systemTimeZone];
+
+        NSInteger sourceGMTOffset = [sourceTimeZone secondsFromGMTForDate:nextFireTime];
+        NSInteger destinationGMTOffset = [destinationTimeZone secondsFromGMTForDate:nextFireTime];
+        NSTimeInterval interval = (destinationGMTOffset - sourceGMTOffset) * -1;
+
+        nextFireTime = [[NSDate alloc] initWithTimeInterval:interval sinceDate:nextFireTime];
+
     }
     return nextFireTime;
 }

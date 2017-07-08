@@ -29,6 +29,7 @@
 		3E51E4561EEDCA6E006C5751 /* SplunkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4551EEDCA6E006C5751 /* SplunkProvider.m */; };
 		3E51E4591EEDCA7D006C5751 /* EmailProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E4581EEDCA7D006C5751 /* EmailProvider.m */; };
 		3E51E4601EEDD1BD006C5751 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E51E45F1EEDD1BD006C5751 /* DataProvider.m */; };
+		3E55607D1F113B9900D608D5 /* Spelunker.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E55607C1F113B9900D608D5 /* Spelunker.icns */; };
 		3E6626471EFDD23200508793 /* JSONValueTransformer+NSUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */; };
 		3E66264D1EFDD6E700508793 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E66264C1EFDD6E700508793 /* Settings.m */; };
 		3E863EF61EEF45EE0044F01C /* AlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E863EF51EEF45EE0044F01C /* AlertHandler.m */; };
@@ -98,6 +99,7 @@
 		3E51E4581EEDCA7D006C5751 /* EmailProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailProvider.m; path = Provider/EmailProvider.m; sourceTree = "<group>"; };
 		3E51E45E1EEDD1BD006C5751 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataProvider.h; path = Provider/DataProvider.h; sourceTree = "<group>"; };
 		3E51E45F1EEDD1BD006C5751 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataProvider.m; path = Provider/DataProvider.m; sourceTree = "<group>"; };
+		3E55607C1F113B9900D608D5 /* Spelunker.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Spelunker.icns; path = Assets.xcassets/Spelunker.iconset/Spelunker.icns; sourceTree = "<group>"; };
 		3E6626451EFDD23200508793 /* JSONValueTransformer+NSUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JSONValueTransformer+NSUUID.h"; path = "Utility/JSONValueTransformer+NSUUID.h"; sourceTree = "<group>"; };
 		3E6626461EFDD23200508793 /* JSONValueTransformer+NSUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JSONValueTransformer+NSUUID.m"; path = "Utility/JSONValueTransformer+NSUUID.m"; sourceTree = "<group>"; };
 		3E66264B1EFDD6E700508793 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Transport/Settings.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				3E51E43C1EEDB707006C5751 /* Info.plist */,
 				3E51E4311EEDB706006C5751 /* Supporting Files */,
 				3E25B0F21F01FC8B00618F44 /* Spelunker.pch */,
+				3E55607C1F113B9900D608D5 /* Spelunker.icns */,
 			);
 			path = Spelunker;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E51E4381EEDB706006C5751 /* Assets.xcassets in Resources */,
+				3E55607D1F113B9900D608D5 /* Spelunker.icns in Resources */,
 				3E51E43B1EEDB707006C5751 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

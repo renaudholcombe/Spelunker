@@ -25,7 +25,6 @@
     [super viewDidLoad];
     [self.alertTable setDelegate:self];
     [self.alertTable setDataSource:self];
-    logicManager = [LogicManager sharedManager];
 
     //notifications!
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAlertList:) name:@"ReloadAlerts" object:nil];
@@ -34,8 +33,16 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openPreferencesPane) name:@"OpenPreferences" object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadManagers:) name:@"Load managers" object:nil];
+
     [self changeControlState:NO];
 }
+
+-(void) loadManagers: (NSNotification *)notification
+{
+    logicManager = [LogicManager sharedManager];
+}
+
 
 -(void) openPreferencesPane
 {
@@ -88,7 +95,7 @@
 
 -(void) updateAlertList:(NSNotification *)notification
 {
-    alertList = notification.object;
+    alertList =[[NSMutableArray alloc] initWithArray: notification.object];
     [alertTable reloadData];
 }
 

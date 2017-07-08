@@ -56,15 +56,25 @@
 
 -(void) getAlertList
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:[alertDictionary allValues]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:[[NSArray alloc] initWithArray: [alertDictionary allValues]]];
 }
 
 -(void) saveAlert:(Alert *)alert
 {
+
+    Alert *oldAlert = [alertDictionary objectForKey:alert.alertId];
+
+    if(oldAlert != nil)
+    {
+        [alert.timer invalidate];
+    }
+
     [alertDictionary setObject:alert forKey:alert.alertId];
 
-    //timer modification code is going to live here;
     [self saveAlertList:[alertDictionary allValues]];
+
+    [self initTimer:alert];
+
 }
 
 -(void) saveAlertList:(NSArray *)alertList
@@ -100,6 +110,13 @@
 -(void) processSplunkResult: (NSNotification *)notifiction
 {
     SplunkSearchResult *searchResult = notifiction.object;
+
+    if(searchResult.alert.alertType == Polling)
+    {
+        NSDictionary *resultsDictionary = (NSDictionary *) [searchResult.result objectForKey:@"results"];
+        if(resultsDictionary.count == 0)
+            return;
+    }
 
     NSString *emailBody = [self createEmailBody:searchResult];
     [emailProvider sendEmailWithAlertName: searchResult.alert.alertName withBody:emailBody];
@@ -152,7 +169,6 @@
     }
     header = [header stringByAppendingString:@"</tr>"];
 
-    //onto the data
     for (NSDictionary *row in results) {
         data = [data stringByAppendingString:@"<tr>"];
 
@@ -172,12 +188,26 @@
 
 -(void) initTimers
 {
-
+    for (Alert *alert in [alertDictionary allValues]) {
+        [self initTimer:alert];
+    }
+    DDLogInfo(@"All timers initialized");
 }
 
 -(void) initTimer: (Alert *)alert
 {
+    alert.timer = [[NSTimer alloc] initWithFireDate:[alert nextFireTime] interval:((alert.alertType == Polling)? 120: (alert.schedulerTimeInterval * 60 * 60)) target:self selector:@selector(alertTimerFired:) userInfo:alert repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:alert.timer forMode:NSDefaultRunLoopMode];
 
+    DDLogInfo(@"Timer initialized for alert \"%@\"", alert.alertName);
+}
+
+-(void) alertTimerFired: (NSTimer *)timer
+{
+    if(timer.userInfo != nil)
+        [splunkProvider searchSplunk:timer.userInfo];
+    else
+        DDLogWarn(@"Invalid alert schedule triggered");
 }
 
 @end

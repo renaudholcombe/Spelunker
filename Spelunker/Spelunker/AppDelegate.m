@@ -17,11 +17,20 @@
 
     [self initializeLogging];
 
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadManagers:) name:@"Load managers" object:nil];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Load managers" object:nil];
+
+}
+
+-(void) loadManagers: (NSNotification *)notification
+{
     logicManager = [LogicManager sharedManager];
     [logicManager getAlertList];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Settings updated" object: [logicManager loadSettings]];
 
-    }
+}
 
 -(void) initializeLogging
 {
@@ -47,6 +56,10 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+
+-(void)applicationWillBecomeActive:(NSNotification *)notification
+{
 }
 
 - (IBAction)showPreferences:(id)sender {

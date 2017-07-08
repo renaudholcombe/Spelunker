@@ -10,6 +10,9 @@
 #import "Constants.h"
 #import "JSONModel/JSONModel.h"
 
+extern const NSInteger POLLINGSCHEDULEFREQUENCY;
+
+
 @protocol Alert;
 
 @interface Alert :JSONModel
