@@ -32,7 +32,7 @@ This application leverages some terrific thirdparty libraries:
 ### Licensing et al. 
 *Spelunker is not endorsed by or in any way connected with Splunk, Inc.*
 
-Spelunker is released under the MIT license. 
+Spelunker is released under the MIT license:
 
 > The MIT License (MIT)
 > Copyright (c) 2017 Renaud Holcombe
