@@ -25,7 +25,7 @@ This application leverages some terrific thirdparty libraries:
 * [SAMKeychain](https://github.com/soffes/SAMKeychain)
 
 ## Licensing et al. 
-*Spelunker is not endorsed by or in any way connected with Splunk, Inc.*
+*Spelunker is not endorsed by or in any way affiliated with Splunk, Inc.*
 
 Spelunker is released under the MIT license:
 
