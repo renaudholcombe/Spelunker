@@ -27,7 +27,7 @@ const NSInteger POLLINGSCHEDULEFREQUENCY = 2; //minutes
 
 -(void)SetDefaults
 {
-    alertName = @"Default alert";
+    alertName = @"New alert";
     alertType = Polling;
     searchString = @"* earliest=-1h";
     isValid = false;

@@ -81,8 +81,18 @@
     } else
     {
         [logMsgCache addObject:logMessage];
-        if(logMsgCache.count > 100) //this application is meant for longterm use, make sure we don't steal all the resources.
-            [logMsgCache removeObjectAtIndex:0];
+        if(logMsgCache.count >= 150) //this application is meant for longterm use, make sure we don't steal all the resources.
+        {
+            NSIndexSet *set = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 50)];
+            [logMsgCache removeObjectsAtIndexes:set];
+            if(textView)
+            {
+                [textView setString:@""];
+                for (DDLogMessage *message in logMsgCache) {
+                    [self appendTextStorageString:message];
+                }
+            }
+        }
     }
 }
 
