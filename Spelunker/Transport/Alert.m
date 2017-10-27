@@ -70,7 +70,7 @@ const NSInteger POLLINGSCHEDULEFREQUENCY = 2; //minutes
             NSInteger rollingHour = scheduledHour;
             while ((rollingHour + (24 * plusDays)) < currentHour )
             {
-                rollingHour += schedulerTimeInterval;
+                rollingHour += (schedulerTimeInterval < 1 || schedulerTimeInterval > 24)? 24: schedulerTimeInterval;
                 if(rollingHour > 23){
                     plusDays += floor((double)rollingHour/24.00);
                 }

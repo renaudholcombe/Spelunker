@@ -26,6 +26,7 @@
 //alerts
 -(void) getAlertList;
 -(void) saveAlert: (Alert *)alert;
+-(void) deleteAlert: (NSUUID *) alertId;
 
 //settings
 -(Settings *) loadSettings;

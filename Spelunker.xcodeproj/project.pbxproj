@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		3E222A261EEDE9C100B9389D /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E222A251EEDE9C100B9389D /* AlertTableView.m */; };
 		3E25B0E01EFF382100618F44 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; };
-		3E25B0E11F0001CD00618F44 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; };
 		3E25B0E21F0001CD00618F44 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0DF1EFF382100618F44 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E25B0E91F01DE9200618F44 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0E81F01DE9200618F44 /* LogViewController.m */; };
 		3E25B0EB1F01E6BC00618F44 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; };
-		3E25B0EC1F01E6C200618F44 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; };
 		3E25B0ED1F01E6C200618F44 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25B0EA1F01E6BC00618F44 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E25B0F11F01F2D200618F44 /* UITextViewLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0F01F01F2D200618F44 /* UITextViewLogger.m */; };
 		3E25B0F51F02041200618F44 /* SpelunkerLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B0F41F02041200618F44 /* SpelunkerLogFormatter.m */; };
@@ -141,8 +139,6 @@
 				3E25B0EB1F01E6BC00618F44 /* CocoaLumberjack.framework in Frameworks */,
 				3E25B0E01EFF382100618F44 /* MailCore.framework in Frameworks */,
 				3EF1C0761EFDE14000E91121 /* Security.framework in Frameworks */,
-				3E25B0E11F0001CD00618F44 /* MailCore.framework in Frameworks */,
-				3E25B0EC1F01E6C200618F44 /* CocoaLumberjack.framework in Frameworks */,
 				3EF1C0741EFDE13200E91121 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,7 +382,7 @@
 		3E51E4231EEDB706006C5751 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Renaud Holcombe";
 				TargetAttributes = {
 					3E51E42A1EEDB706006C5751 = {
@@ -487,7 +483,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -495,7 +493,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -535,7 +537,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -543,7 +547,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

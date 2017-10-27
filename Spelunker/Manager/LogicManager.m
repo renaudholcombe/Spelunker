@@ -82,6 +82,14 @@
     [dataProvider saveAlerts:alertList];
 }
 
+-(void) deleteAlert:(NSUUID *)alertId
+{
+    Alert *alert = [alertDictionary valueForKey:[alertId UUIDString]];
+    [alert.timer invalidate];
+    [alertDictionary removeObjectForKey:alertId];
+    [self saveAlertList:[alertDictionary allValues]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAlerts" object:[[NSArray alloc] initWithArray: [alertDictionary allValues]]];
+}
 
 #pragma mark settings methods
 

@@ -35,6 +35,9 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadManagers:) name:@"Load managers" object:nil];
 
+    scheduledDatePicker.timeZone = [NSTimeZone systemTimeZone];
+
+
     [self changeControlState:NO];
 }
 
@@ -153,6 +156,7 @@
     alertSearchTextField.stringValue = @"";
     alertSearchTextField.enabled = value;
     testAlertButton.enabled = value;
+    deleteAlertButton.enabled = value;
 }
 
 #pragma mark action methods
@@ -192,6 +196,7 @@
 }
 
 - (IBAction)deleteButtonPressed:(id)sender {
+    [logicManager deleteAlert:tempAlertId];
 }
 
 - (IBAction)testButtonPressed:(id)sender {
