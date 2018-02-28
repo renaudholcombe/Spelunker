@@ -43,6 +43,11 @@ const NSInteger POLLINGSCHEDULEFREQUENCY = 2; //minutes
     return NO;
 }
 
+-(void)setSchedulerTimeInterval:(NSInteger)interval
+{
+    schedulerTimeInterval = (interval < 1 || interval > 24) ? 24: interval;
+}
+
 -(NSDate *) nextFireTime
 {
     NSDate *nextFireTime = [NSDate date];
